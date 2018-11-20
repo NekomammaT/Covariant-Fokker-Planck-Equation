@@ -1,0 +1,249 @@
+% !TEX TS-program = xelatex%
+
+\documentclass[aps, prd
+, preprint
+%, twocolumn
+, nofootinbib 
+, notitlepage
+%, superscriptaddress
+, longbibliography
+]{revtex4-1}
+\usepackage{graphicx}
+\usepackage[caption=false]{subfig}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{listings}
+\usepackage{cases}
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{cancel}
+\usepackage{cases}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage[normalem]{ulem}
+\usepackage[colorlinks=true
+,urlcolor=blue
+,anchorcolor=blue
+,citecolor=blue
+,filecolor=blue
+,linkcolor=blue
+,menucolor=blue
+%,pagecolor=blue
+,linktocpage=true
+,pdfproducer=medialab
+,pdfa=true
+]{hyperref}
+
+%\usepackage{mathpazo}
+%\usepackage[no-math]{fontspec}
+%\setmainfont{Palatino}
+%\setsansfont{Optima}
+
+\newcommand{\dif}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\pdif}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\var}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\DD}{\mathscr{D}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\Mpl}{M_\text{Pl}}
+\newcommand{\ns}{n_{{}_\mathrm{S}}}
+\newcommand{\cs}{c_{{}_\mathrm{S}}}
+\newcommand{\IR}{\text{IR}}
+\newcommand{\UV}{\text{UV}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\dk}{\frac{\dd^3k}{(2\pi)^3}}
+\newcommand{\bbalpha}{{\alpha\!\!\!\alpha}}
+\newcommand{\dps}{\displaystyle}
+\newcommand{\SIA}{S_\text{IA}}
+\newcommand{\eff}{\text{eff}}
+\newcommand{\kdx}{\mathbf{k}\cdot\mathbf{x}}
+
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\scrD}{\mathscr{D}}
+\newcommand{\calg}{\mathcal{g}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\scrH}{\mathscr{H}}
+\newcommand{\uI}{\text{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\scrJ}{\mathscr{J}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\scrL}{\mathscr{L}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\scrO}{\mathscr{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\uR}{\text{R}}
+
+\newcommand{\bae}[1]{\begin{align} #1 \end{align}}
+\newcommand{\bce}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\bfe}[4]{
+\begin{figure} 
+	\centering
+	\includegraphics[#1]{#2}
+	\caption{#3}
+	\label{#4}
+\end{figure}}
+\newcommand{\bpme}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+\newcommand{\Red}[1]{\textcolor{red}{\sffamily #1}}
+\newcommand{\Mag}[1]{\textcolor{magenta}{\sffamily #1}}
+\newcommand{\Blue}[1]{\textcolor{blue}{\sffamily #1}}
+\newcommand{\mathblue}[1]{\textcolor{blue}{#1}}
+
+
+
+\begin{document}
+\title{Covariant Fokker-Planck Equation}
+\date{\today}
+
+\author{Yuichiro Tada}
+\email{tada.yuichiro@e.mbox.nagoya-u.ac.jp}
+\affiliation{Department of Physics, Nagoya University, Nagoya 464-8602, Japan}
+%\affiliation{Institut d'Astrophysique de Paris, GReCO, UMR 7095 du CNRS et Sorbonne Universit\'e, 
+%98bis boulevard Arago, 75014 Paris, France}
+
+
+\begin{abstract}
+Recently Kitamoto pointed out that the one-point quadratic UV terms caused by non-parallel transportation of the vielbein is non-negligible as a new source of the drift term in the Langevin equation,
+resulting in a covariant Fokker-Planck equation in the non-linear sigma model~\cite{Kitamoto:2018dek}.
+We are trying to summarize all our knowledge, respecting this article.
+\end{abstract}
+
+\maketitle
+%\tableofcontents
+
+
+
+\section{Field-space formulation}
+
+\subsection{spin connection}
+
+According to Ref.~\cite{Kitamoto:2018dek}, the local-frame fields projected by the vielbein seem more
+important than the original fields themselves. Therefore let us first derive EoM in terms of the local frame.
+The original Hamiltonian equations without metric perturbations are given by
+\bae{
+    \bce{
+        \dps
+        \partial_N\phi^I=G^{IJ}\frac{\pi_J}{H}, \\
+        \dps
+        \partial_N\pi_I=-3\pi_I-\frac{V_I}{H}+\frac{1}{a^2H}\partial_i\left(G_{IJ}\partial_i\phi^J\right)
+        -\frac{1}{2a^2H}G_{JK,I}\partial_i\phi^J\partial_i\phi^K-\frac{1}{2H}G^{JK}{}_{,I}\pi_J\pi_K.
+    }
+}
+They can be summarized in a covariant way as
+\bae{
+    \partial_N\phi^I=G^{IJ}\frac{\pi_J}{H}, \qquad D_N\pi_I=-3\pi_I-\frac{V_I}{H}+\frac{1}{a^2H}D_i\left(G_{IJ}\partial_i\phi^J\right),
+}
+with use of the covariant spacetime derivatives,
+\bae{
+    D_N\pi_I=\partial_N\pi_I-\Gamma^K_{IJ}\pi_K\partial_N\phi^J, \qquad 
+    D_i\calO_I=\partial_i\calO^I-\Gamma^K_{IJ}\calO_K\partial_i\phi^J.
+} 
+
+\newpage
+
+For a function only of $\phi$, these derivatives can be clearly rewritten by the covariant field derivative $\nabla_I$ as
+\bae{
+    D_{N,i}\calO=(\partial_{N,i}\phi^I)\nabla_I\calO.
+}
+Therefore, introducing the spin connection
+\bae{
+    \omega_{Iab}&=e^J_a\nabla_Ie_{Jb} \nonumber \\
+    &=\frac{1}{2}e^J_a\left(\partial_Ie_{Jb}-\partial_Je_{Ib}\right)
+    -\frac{1}{2}e^I_b\left(\partial_Ie_{Ja}-\partial_Je_{Ia}\right)
+    -\frac{1}{2}e^J_ae^K_b(\partial_Je_{Kc}-\partial_Ke_{Jc})e_{Ic},
+}
+the Hamiltonian equations can be projected to the local frame:
+\begin{subnumcases}{}
+    \dps
+    (\partial_N\phi)_a=\frac{\pi_a}{H}, \\
+    \dps
+    \partial_N\pi_a=-3\pi_a-\frac{V_a}{H}+\frac{1}{a^2H}\partial_i(\partial_i\phi)_a
+    -\frac{1}{H}e^J_c\omega_{Jab}\left(\pi_b\pi_c-\frac{1}{a^2}(\partial_i\phi)_b(\partial_i\phi)_c\right),
+    \label{eq: pia EoM}
+\end{subnumcases}
+where\footnote{Note that field-space vectors are not $\phi^I$ itself but its derivatives $\partial_{N,i}\phi^I$ and that is why the $\phi$'s projection is defined in the way of Eq.~(\ref{eq: def of projection}).}
+\bae{\label{eq: def of projection}
+    (\partial_{N,i}\phi)_a=e_{Ia}\partial_{N,i}\phi^I, \qquad \pi_a=e^I_a\pi_I, \qquad V_a=e^I_aV_I.
+}
+
+While the third term in the right side of Eq.~(\ref{eq: pia EoM}) can be omitted in the long-wavelength limit, the last term gives a non-negligible contribution, according to Ref.~\cite{Kitamoto:2018dek}, 
+and such an one-point correlator is estimated as
+\bae{
+    \pi_a\pi_b-\frac{1}{a^2}(\partial_i\phi)_a(\partial_i\phi)_b\simeq 3H^2g_{ac}g_{bc}=:3H^2g^2_{ab}.
+}
+Here $g_{ab}$ represents the mode function of the local-frame UV fields. 
+The power spectrum of the original fields can be expressed by this one as 
+$\calP_{\phi^I\phi^J}=g_{ab}e^I_bg_{ac}e^J_c=g^2_{bc}e^I_be^J_c$. 
+If the mode mixing due to the effective mass can be neglected, i.e. $g^2_{ab}\simeq\left(\frac{H}{2\pi}\right)^2\delta_{ab}$, the power spectrum reduces to the standard one $\calP_{\phi^I\phi^J}\simeq\left(\frac{H}{2\pi}\right)^2G^{IJ}$.
+Including the contribution of this term, the slow-roll field-space Langevin eq. for IR fields $\varphi^I$ then reads
+\bae{\label{eq: Kitamoto Langevin}
+    \dd\varphi^I=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}e^J_b\nabla_Je^I_a\right)\dd N
+    +g_{ab}e^I_b\circ\dd W_a.
+}
+Note the following identical deformation.
+\bae{
+    e^I_ag^2_{bc}e^J_c\omega_{Jab}=e^I_ag^2_{bc}e^J_ce^K_a\nabla_Je_{Kb}=g^2_{bc}e^J_cG^{IK}\nabla_Je_{Kb}=g^2_{bc}e^J_c\nabla_Je^I_c.
+}
+
+This new drift term represents non-uniformity of the local frame. If the field space is exactly flat,
+the vielbein can be taken so that its covariant derivative vanishes at all field space points.
+Also if one considers only deterministic background trajectory $\phi^I_0$ without stochastic noise,
+there is a useful choice of the vielbein satisfying the parallel transported condition $\dot{\phi}_0^I\nabla_Ie^J_a=0$. 
+However in the stochastic cases, one must consider all field space points in principle and therefore this spin connection should be taken into account in general.
+
+
+\subsection{It\^o-Stratonovich stuff and covariant Fokker-Planck}
+
+In the Langevin eq.~(\ref{eq: Kitamoto Langevin}), we adopted the Stratonovich noise integral, reflecting the fact that the Stratonovich works for metric type interactions.
+On the other hand, one has to keep in mind that the potential type interaction should be treated in the It\^o's way.
+The potential interaction, or the effective mass correction in other words, affects the local-frame amplitude $g_{ab}$.
+Following the Tokuda's approach, one then introduces dummy fields $\bar{\varphi}^I$ representing slightly past field values (or fields with a slightly large coarse-graining scale) and $g_{ab}$ is assumed to be a function of $\bar{\varphi}^I$.
+After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^I$ are not affected by differentiations in $\phi^I$, one can take a limit of $\bar{\varphi}^I\to\varphi^I$:
+\bae{
+    \dd\varphi^I&=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a\right)\dd N
+    +g_{ab}(\bar{\varphi})e^I_b\circ\dd W_a \nonumber \\
+    &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a-\frac{1}{2}g_{ab}(\bar{\varphi})e^J_b\partial_J(g_{ac}(\bar{\varphi})e^I_c)\right)\dd N+g_{ab}(\bar{\varphi})e^I_b\dd W_a \nonumber \\
+    &\hspace{-5pt}\underset{\bar{\varphi}\to\varphi}{=}-\left(\frac{V^I}{3H^2}+\frac{1}{2}g_{ab}e^J_b(\nabla_J-\partial_J)e^I_a\right)\dd N+g_{ab}e^I_b\dd W_a \nonumber \\
+    &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)\dd N+g_{ab}e^I_b\dd W_a.
+}
+The corresponding Fokker-Planck equation reads
+\bae{
+    \partial_NP&=\partial_I\left[\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)P\right]+\frac{1}{2}\partial_I\partial_J(\calP_{\phi^I\phi^J}P) \nonumber \\
+    &=\partial_I\left[\left(\frac{V^I}{3H^2}+g_a^J\nabla_Jg^I_a\right)P\right]+\frac{1}{2}\partial_I\left[g^I_a\partial_J(g^J_aP)\right],
+}
+where $g^I_a=g_{ab}e^I_b$. Making use of the formula $\frac{1}{\sqrt{G}}\nabla_I(\sqrt{G}\calO^I)=\nabla_I\calO^I$, it can be easily covariantized as
+\bae{
+    \partial_NP_s&=\nabla_I\left[\left(\frac{V^I}{3H^2}+g^J_a\nabla_Jg^I_a\right)P_s\right]+\frac{1}{2}\nabla_I\left[g^I_a\nabla_J(g^J_aP_s)\right] \nonumber \\
+    &=\nabla_I\left(\frac{V^I}{3H^2}P_s\right)+\frac{1}{2}\nabla_I\nabla_J(\calP_{\phi^I\phi^J}P_s),
+}
+for the field-space scalar PDF $P_s=P/\sqrt{G}$. Therefore the resultant Fokker-Planck equation is successfully field-space covariant and independent of the choice of the vielbein.
+
+
+
+
+
+
+%\acknowledgments
+
+
+
+
+
+%\appendix
+
+
+
+
+
+
+
+\bibliography{main}
+\end{document}
