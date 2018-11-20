@@ -125,8 +125,8 @@ We are trying to summarize all our knowledge, respecting this article.
 
 \subsection{spin connection}
 
-According to Ref.~\cite{Kitamoto:2018dek}, the local-frame fields projected by the vielbein seem more
-important than the original fields themselves. Therefore let us first derive EoM in terms of the local frame.
+According to Ref.~\cite{Kitamoto:2018dek}, the local-frame fields projected by the vielbein seem
+important rather than the original fields themselves. Therefore let us first derive EoM in terms of the local frame.
 The original Hamiltonian equations without metric perturbations are given by
 \bae{
     \bce{
@@ -144,7 +144,7 @@ They can be summarized in a covariant way as
 with use of the covariant spacetime derivatives,
 \bae{
     D_N\pi_I=\partial_N\pi_I-\Gamma^K_{IJ}\pi_K\partial_N\phi^J, \qquad 
-    D_i\calO_I=\partial_i\calO^I-\Gamma^K_{IJ}\calO_K\partial_i\phi^J.
+    D_i\calO_I=\partial_i\calO_I-\Gamma^K_{IJ}\calO_K\partial_i\phi^J.
 } 
 
 \newpage
@@ -153,7 +153,7 @@ For a function only of $\phi$, these derivatives can be clearly rewritten by the
 \bae{
     D_{N,i}\calO=(\partial_{N,i}\phi^I)\nabla_I\calO.
 }
-Therefore, introducing the spin connection
+Therefore, introducing the spin connection $\omega_{Iab}$ by
 \bae{
     \omega_{Iab}&=e^J_a\nabla_Ie_{Jb} \nonumber \\
     &=\frac{1}{2}e^J_a\left(\partial_Ie_{Jb}-\partial_Je_{Ib}\right)
@@ -169,20 +169,20 @@ the Hamiltonian equations can be projected to the local frame:
     -\frac{1}{H}e^J_c\omega_{Jab}\left(\pi_b\pi_c-\frac{1}{a^2}(\partial_i\phi)_b(\partial_i\phi)_c\right),
     \label{eq: pia EoM}
 \end{subnumcases}
-where\footnote{Note that field-space vectors are not $\phi^I$ itself but its derivatives $\partial_{N,i}\phi^I$ and that is why the $\phi$'s projection is defined in the way of Eq.~(\ref{eq: def of projection}).}
+where\footnote{Note that field-space vectors are not $\phi^I$ itself but its derivatives $\partial_{N,i}\phi^I$ and that is why the $\phi$'s projection is defined in the way of Eq.~(\ref{eq: def of projection}), that is, $(\partial_{N,i}\phi)_a=e_{Ia}\partial_{N,i}\phi^I$ is different from $\partial_{N,i}(e_{Ia}\phi^I)$.}
 \bae{\label{eq: def of projection}
     (\partial_{N,i}\phi)_a=e_{Ia}\partial_{N,i}\phi^I, \qquad \pi_a=e^I_a\pi_I, \qquad V_a=e^I_aV_I.
 }
 
 While the third term in the right side of Eq.~(\ref{eq: pia EoM}) can be omitted in the long-wavelength limit, the last term gives a non-negligible contribution, according to Ref.~\cite{Kitamoto:2018dek}, 
-and such an one-point correlator is estimated as
+and such a one-point correlator is estimated as
 \bae{
     \pi_a\pi_b-\frac{1}{a^2}(\partial_i\phi)_a(\partial_i\phi)_b\simeq 3H^2g_{ac}g_{bc}=:3H^2g^2_{ab}.
 }
 Here $g_{ab}$ represents the mode function of the local-frame UV fields. 
 The power spectrum of the original fields can be expressed by this one as 
 $\calP_{\phi^I\phi^J}=g_{ab}e^I_bg_{ac}e^J_c=g^2_{bc}e^I_be^J_c$. 
-If the mode mixing due to the effective mass can be neglected, i.e. $g^2_{ab}\simeq\left(\frac{H}{2\pi}\right)^2\delta_{ab}$, the power spectrum reduces to the standard one $\calP_{\phi^I\phi^J}\simeq\left(\frac{H}{2\pi}\right)^2G^{IJ}$.
+If the mode mixing due to the effective mass matrix can be neglected, i.e. $g^2_{ab}\simeq\left(\frac{H}{2\pi}\right)^2\delta_{ab}$, the power spectrum reduces to the standard one $\calP_{\phi^I\phi^J}\simeq\left(\frac{H}{2\pi}\right)^2G^{IJ}$.
 Including the contribution of this term, the slow-roll field-space Langevin eq. for IR fields $\varphi^I$ then reads
 \bae{\label{eq: Kitamoto Langevin}
     \dd\varphi^I=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}e^J_b\nabla_Je^I_a\right)\dd N
@@ -206,12 +206,12 @@ In the Langevin eq.~(\ref{eq: Kitamoto Langevin}), we adopted the Stratonovich n
 On the other hand, one has to keep in mind that the potential type interaction should be treated in the It\^o's way.
 The potential interaction, or the effective mass correction in other words, affects the local-frame amplitude $g_{ab}$.
 Following the Tokuda's approach, one then introduces dummy fields $\bar{\varphi}^I$ representing slightly past field values (or fields with a slightly large coarse-graining scale) and $g_{ab}$ is assumed to be a function of $\bar{\varphi}^I$.
-After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^I$ are not affected by differentiations in $\phi^I$, one can take a limit of $\bar{\varphi}^I\to\varphi^I$:
+After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^I$ are not affected by differentiations in $\varphi^I$, one can take a limit of $\bar{\varphi}^I\to\varphi^I$:
 \bae{
     \dd\varphi^I&=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a\right)\dd N
     +g_{ab}(\bar{\varphi})e^I_b\circ\dd W_a \nonumber \\
     &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a-\frac{1}{2}g_{ab}(\bar{\varphi})e^J_b\partial_J(g_{ac}(\bar{\varphi})e^I_c)\right)\dd N+g_{ab}(\bar{\varphi})e^I_b\dd W_a \nonumber \\
-    &\hspace{-5pt}\underset{\bar{\varphi}\to\varphi}{=}-\left(\frac{V^I}{3H^2}+\frac{1}{2}g_{ab}e^J_b(\nabla_J-\partial_J)e^I_a\right)\dd N+g_{ab}e^I_b\dd W_a \nonumber \\
+    &\hspace{-5pt}\underset{\bar{\varphi}\to\varphi}{=}-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}e^J_b(\nabla_J-\partial_J)e^I_a\right)\dd N+g_{ab}e^I_b\dd W_a \nonumber \\
     &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)\dd N+g_{ab}e^I_b\dd W_a.
 }
 The corresponding Fokker-Planck equation reads
@@ -219,7 +219,7 @@ The corresponding Fokker-Planck equation reads
     \partial_NP&=\partial_I\left[\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)P\right]+\frac{1}{2}\partial_I\partial_J(\calP_{\phi^I\phi^J}P) \nonumber \\
     &=\partial_I\left[\left(\frac{V^I}{3H^2}+g_a^J\nabla_Jg^I_a\right)P\right]+\frac{1}{2}\partial_I\left[g^I_a\partial_J(g^J_aP)\right],
 }
-where $g^I_a=g_{ab}e^I_b$. Making use of the formula $\frac{1}{\sqrt{G}}\nabla_I(\sqrt{G}\calO^I)=\nabla_I\calO^I$, it can be easily covariantized as
+where $g^I_a=g_{ab}e^I_b$. Making use of the formula $\frac{1}{\sqrt{G}}\partial_I(\sqrt{G}\calO^I)=\nabla_I\calO^I$, it can be easily covariantized as
 \bae{
     \partial_NP_s&=\nabla_I\left[\left(\frac{V^I}{3H^2}+g^J_a\nabla_Jg^I_a\right)P_s\right]+\frac{1}{2}\nabla_I\left[g^I_a\nabla_J(g^J_aP_s)\right] \nonumber \\
     &=\nabla_I\left(\frac{V^I}{3H^2}P_s\right)+\frac{1}{2}\nabla_I\nabla_J(\calP_{\phi^I\phi^J}P_s),
