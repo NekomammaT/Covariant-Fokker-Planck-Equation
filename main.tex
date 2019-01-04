@@ -207,30 +207,70 @@ On the other hand, one has to keep in mind that the potential type interaction s
 The potential interaction, or the effective mass correction in other words, affects the local-frame amplitude $g_{ab}$.
 Following the Tokuda's approach, one then introduces dummy fields $\bar{\varphi}^I$ representing slightly past field values (or fields with a slightly large coarse-graining scale) and $g_{ab}$ is assumed to be a function of $\bar{\varphi}^I$.
 After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^I$ are not affected by differentiations in $\varphi^I$, one can take a limit of $\bar{\varphi}^I\to\varphi^I$:
-\bae{
+\bae{\label{eq: Ito in field space}
     \dd\varphi^I&=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a\right)\dd N
     +g_{ab}(\bar{\varphi})e^I_b\circ\dd W_a \nonumber \\
     &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}(\bar{\varphi})e^J_b\nabla_Je^I_a-\frac{1}{2}g_{ab}(\bar{\varphi})e^J_b\partial_J(g_{ac}(\bar{\varphi})e^I_c)\right)\dd N+g_{ab}(\bar{\varphi})e^I_b\dd W_a \nonumber \\
     &\hspace{-5pt}\underset{\bar{\varphi}\to\varphi}{=}-\left(\frac{V^I}{3H^2}+\frac{1}{2}g^2_{ab}e^J_b(\nabla_J-\partial_J)e^I_a\right)\dd N+g_{ab}e^I_b\dd W_a \nonumber \\
     &=-\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)\dd N+g_{ab}e^I_b\dd W_a.
 }
+Note that the induced term $\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\dd N$ is nothing but the correction term introduced by Graham~\cite{graham1985covariant}.
+According to this reference, the covariant derivative for the It\^o process $\varphi^I$ is defined by
+\bae{
+	D\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K},
+}
+and then the Langevin equation can be rewritten covariantly making use of this derivative:
+\bae{
+	D\varphi^I=-\frac{V^I}{3H^2}\dd N+g^I_a\dd W_a,
+}
+where $g^I_a=g_{ab}e^I_b$.
+
 The corresponding Fokker-Planck equation reads
 \bae{
     \partial_NP&=\partial_I\left[\left(\frac{V^I}{3H^2}+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\right)P\right]+\frac{1}{2}\partial_I\partial_J(\calP_{\phi^I\phi^J}P) \nonumber \\
     &=\partial_I\left[\left(\frac{V^I}{3H^2}+g_a^J\nabla_Jg^I_a\right)P\right]+\frac{1}{2}\partial_I\left[g^I_a\partial_J(g^J_aP)\right],
 }
-where $g^I_a=g_{ab}e^I_b$. Making use of the formula $\frac{1}{\sqrt{G}}\partial_I(\sqrt{G}\calO^I)=\nabla_I\calO^I$, it can be easily covariantized as
-\bae{
+The formula $\frac{1}{\sqrt{G}}\partial_I(\sqrt{G}\calO^I)=\nabla_I\calO^I$ can enable us to rewrite it covariantly as
+\bae{\label{eq: covFP in field space}
     \partial_NP_s&=\nabla_I\left[\left(\frac{V^I}{3H^2}+g^J_a\nabla_Jg^I_a\right)P_s\right]+\frac{1}{2}\nabla_I\left[g^I_a\nabla_J(g^J_aP_s)\right] \nonumber \\
     &=\nabla_I\left(\frac{V^I}{3H^2}P_s\right)+\frac{1}{2}\nabla_I\nabla_J(\calP_{\phi^I\phi^J}P_s),
 }
-for the field-space scalar PDF $P_s=P/\sqrt{G}$. Therefore the resultant Fokker-Planck equation is successfully field-space covariant and independent of the choice of the vielbein.
+for the field-space scalar PDF $P_s=P/\sqrt{G}$. Therefore the resultant Fokker-Planck equation is indeed 
+successfully field-space covariant and independent of the choice of the vielbein.
+
 
 
 
 \section{Phase-Space Formulation}
 
 \subsection{Covariant Fokker-Planck and Langevin equations}
+
+The covariant Fokker-Planck (FP) equation~(\ref{eq: covFP in field space}) in the field-space formulation under the slow-roll approximation
+would be naturally generalized to the phase-space formulation.
+In this subsection, let us start by assuming the covariant FP equation in phase space and then derive the corresponding Langevin equation.
+
+Making use of the phase-space covariant field derivative $D_{\varphi^I}$
+\bae{
+	D_{\varphi^I}\calO^{JK\cdots}_{LM\cdots}:=&\partial_{\varphi^I}\calO^{JK\cdots}_{LM\cdots}
+	+\Gamma^S_{IR}\varpi_S\partial_{\varpi_R}\calO^{JK\cdots}_{LM\cdots} \nonumber \\
+	&+\Gamma^J_{IR}\calO^{RK\cdots}_{LM\cdots}+\Gamma^K_{IR}\calO^{JR\cdots}_{LM\cdots}+\cdots \nonumber \\
+	&-\Gamma^R_{IL}\calO^{JK\cdots}_{RM\cdots}-\Gamma^R_{IM}\calO^{JK\cdots}_{LR\cdots}-\cdots,
+}
+and noting that the momentum derivative $\partial_{\pi_I}$ is already covariant,
+the \emph{possible} covariant FP equation can be assumed as
+\bae{
+	\partial_NP=&-D_{\varphi^I}\left(\frac{G^{IJ}}{H}\varpi_JP\right)+\partial_{\varpi_I}\left[\left(3\varpi_I+\frac{V_I}{H}\right)P\right] \nonumber \\
+	&+\frac{1}{2}D_{\varphi^I}D_{\varphi^J}(A_{QQ}{}^{IJ}P)+D_{\varphi^I}\partial_{\varpi_J}(A_{Q\tilde{P}}{}^I{}_JP)
+	+\frac{1}{2}\partial_{\varpi_I}\partial_{\varpi_J}(A_{\tilde{P}\tilde{P}IJ}P).
+}
+Here $Q^I$ and $\tilde{P}_I$ represent the UV mode of $\phi^I$ and its covariant momentum ($\tilde{P}_I\approx G_{IJ}D_tQ^J$ in the massless limit)
+and $A_{QQ}$, $A_{Q\tilde{P}}$, and $A_{\tilde{P}\tilde{P}}$ indicate their power spectra as noise amplitudes.
+This FP equation can be rewritten explicitly as
+\bae{
+	\partial_NP=-\partial_{\varphi^I}\left[\left(\frac{G^{IJ}}{H}\varpi_J-\frac{1}{2}\Gamma^I_{JK}A_{QQ}{}^{JK}\right)P\right]
+}
+
+
 
 
 
