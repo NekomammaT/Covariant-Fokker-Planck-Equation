@@ -217,11 +217,11 @@ After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^
 Note that the induced term $\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\dd N$ is nothing but the correction term introduced by Graham~\cite{graham1985covariant}.
 According to this reference, the covariant derivative for the It\^o process $\varphi^I$ is defined by
 \bae{
-	D\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K},
+	\calD\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K},
 }
 and then the Langevin equation can be rewritten covariantly making use of this derivative:
 \bae{
-	D\varphi^I=-\frac{V^I}{3H^2}\dd N+g^I_a\dd W_a,
+	\calD\varphi^I=-\frac{V^I}{3H^2}\dd N+g^I_a\dd W_a,
 }
 where $g^I_a=g_{ab}e^I_b$.
 
@@ -265,9 +265,13 @@ the \emph{possible} covariant FP equation can be assumed as
 }
 Here $Q^I$ and $\tilde{P}_I$ represent the UV mode of $\phi^I$ and its covariant momentum ($\tilde{P}_I\approx G_{IJ}D_tQ^J$ in the massless limit)
 and $A_{QQ}$, $A_{Q\tilde{P}}$, and $A_{\tilde{P}\tilde{P}}$ indicate their power spectra as noise amplitudes.
-This FP equation can be rewritten explicitly as
+This FP equation can be rewritten explicitly as (\Red{TBC})
 \bae{
-	\partial_NP=-\partial_{\varphi^I}\left[\left(\frac{G^{IJ}}{H}\varpi_J-\frac{1}{2}\Gamma^I_{JK}A_{QQ}{}^{JK}\right)P\right]
+	\partial_NP=&-\partial_{\varphi^I}\left[\left(\frac{\varpi^I}{H}-\frac{1}{2}\Gamma^I_{JK}A_{QQ}{}^{JK}\right)P\right] \nonumber \\
+	&-\partial_{\varpi_I}\left[\left(-3\varpi_I-\frac{V_I}{H}+\Gamma^S_{IJ}\frac{\varpi_S\varpi^J}{H}
+	-\frac{1}{2}\left(R^S{}_{JIK}-\Gamma^S_{JK,I}\right)\varpi_SA_{QQ}{}^{JK}+\Gamma^J_{IK}A_{Q\tilde{P}}{}^K{}_J\right)P\right] \nonumber \\
+	&+\frac{1}{2}\partial_{\varphi^I}\partial_{\varphi^J}(A_{QQ}{}^{IJ}P)+\partial_{\varphi^I}\partial_{\varpi_J}(A_{QP}{}^I{}_JP)
+	+\frac{1}{2}\partial_{\varpi_I}\partial_{\varpi_J}(A_{PPIJ}P),
 }
 
 
