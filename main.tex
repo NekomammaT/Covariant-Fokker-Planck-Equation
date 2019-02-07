@@ -44,6 +44,8 @@
 
 \newcommand{\dif}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
 \newcommand{\pdif}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppdpdpd}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
+\newcommand{\pppdpdpdpd}[4]{\frac{\partial^3 #1}{\partial #2\partial #3\partial #4}}
 \newcommand{\var}[2]{\frac{\delta #1}{\delta #2}}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\DD}{\mathscr{D}}
@@ -114,11 +116,19 @@
 Recently Kitamoto pointed out that the one-point quadratic UV terms caused by non-parallel transportation of the vielbein is non-negligible as a new source of the drift term in the Langevin equation,
 resulting in a covariant Fokker-Planck equation in the non-linear sigma model~\cite{Kitamoto:2018dek}.
 We are trying to summarize all our knowledge, respecting this article.
+\begin{table}[htbp]
+	\centering
+	\caption{Notation}
+	\begin{tabular}{rl}
+		$\nabla$: & field-space covariant derivative \\
+		$D$: & phase-space covariant derivative \\
+		$\calD$: & Graham's covariant derivative
+	\end{tabular}
+\end{table}
 \end{abstract}
 
 \maketitle
 %\tableofcontents
-
 
 
 \section{Field-space formulation}
@@ -280,6 +290,92 @@ corresponding with the field space metric $G_{IJ}$:
     +\Gamma^R_{JK}\Gamma^S_{IR}-\Gamma^R_{IJ}\Gamma^S_{KR}.
 }
 
+The corresponding It\^o's Langevin equation immediately follows as
+\bae{
+	\bce{
+		\dps
+		\dd\varphi^I=\left(\frac{\varpi^I}{H}-\frac{1}{2}\Gamma^I_{JK}A_{QQ}{}^{JK}\right)\dd N+g^I_{Qa}\dd W_a, \\[10pt]
+		\dps
+		\dd\varpi_I=\left(-3\varpi_I-\frac{V_I}{H}+\Gamma^S_{IJ}\frac{\varpi_S\varpi^J}{H}
+		-\frac{1}{2}\left(R^S{}_{JIK}-\Gamma^S_{JK,I}\right)\varpi_SA_{QQ}{}^{JK}+\Gamma^J_{IK}A_{Q\tilde{P}}{}^K{}_J\right)\dd N+g_{PIa}\dd W_a.
+	}
+}
+The covariance of this equation is not obvious due to the It\^o's lemma. If one defines the covariant derivatives for $\varphi$ and $\varpi$ in the Graham's way as
+\bae{
+	\bce{
+		\dps
+		\calD\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}A_{QQ}{}^{JK}\dd N, \\[10pt]
+		\dps
+		\calD\varpi_I:=\dd\varpi_I-\Gamma^K_{IJ}\varpi_K\calD\varphi^J
+		+\left(\frac{1}{2}\left(R^S{}_{JIK}-\Gamma^S_{JK,I}\right)\varpi_SA_{QQ}{}^{JK}-\Gamma^J_{IK}A_{Q\tilde{P}}{}^K{}_J\right)\dd N,
+	}
+}
+the Langevin equation can be summarized covariantly:
+\bae{
+	\bce{
+		\dps
+		\calD\varphi^I=\frac{\varpi^I}{H}\dd N+g^I_{Qa}\dd W_a, \\[10pt]
+		\dps
+		\calD\varpi_I=\left(-3\varpi_I-\frac{V_I}{H}\right)\dd N+g_{\tilde{P}Ia}\dd W_a.
+	}
+}
+
+Let us check that the above Graham's covariant derivatives are in fact covariant against the It\^o's lemma.
+Considering the coordinate transformation $\varphi^I\to\tilde{\varphi}^A(\varphi)$, its derivative is given by the It\^o's lemma as
+\bae{
+	\dd\tilde{\varphi}^A=\pdif{\tilde{\varphi}^A}{\varphi^I}\dd\varphi^I+\frac{1}{2}\frac{\partial^2\tilde{\varphi}^A}{\partial\varphi^I\partial\varphi^J}\dd\varphi^I\dd\varphi^J.
+}
+On the other hand, the Christoffel symbol transforms as
+\bae{\label{eq: christoffel trs.}
+	\pdif{\tilde{\varphi}^A}{\varphi^I}\Gamma^I_{JK}=\pdif{\tilde{\varphi}^B}{\varphi^J}\pdif{\tilde{\varphi}^C}{\varphi^K}\Gamma^A_{BC}
+	+\frac{\partial^2\tilde{\varphi}^A}{\partial\varphi^J\partial\varphi^K}.
+}
+Therefore $\calD\varphi^I$ in fact transforms as a vector:
+\bae{
+	\calD\tilde{\varphi}^A&=\dd\tilde{\varphi}^A+\frac{1}{2}\Gamma^A_{BC}A_{QQ}{}^{BC} \nonumber \\
+	&=\pdif{\tilde{\varphi}^A}{\varphi^I}\dd\varphi^I+\frac{1}{2}\left(\frac{\partial^2\tilde{\varphi}^A}{\partial\varphi^J\partial\varphi^K}
+	+\pdif{\tilde{\varphi}^B}{\varphi^J}\pdif{\tilde{\varphi}^C}{\varphi^K}\Gamma^A_{BC}\right)A_{QQ}{}^{JK} \nonumber \\
+	&=\pdif{\tilde{\varphi}^A}{\varphi^I}\calD\varphi^I.
+}
+The conjugate momentum of this new coordinate is defined by the vectorial transformation as
+\bae{
+	\pdif{\tilde{\varphi}^A(\varphi)}{\varphi^I}\tilde{\varpi}_A(\varphi,\varpi)=\varpi_I.
+}
+Noting the arguments in the left side, one derives the following formula by differentiating this equation.
+\bae{
+	\bce{
+		\dps
+		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\tilde{\varpi}_A=-\pdif{\tilde{\varphi}^A}{\varphi^I}\pdif{\tilde{\varpi}_A}{\varphi^J}, \\[10pt]
+		\dps
+		\pdif{\tilde{\varphi}^A}{\varphi^I}\pdif{\tilde{\varpi}_A}{\varpi_J}=\delta^J_I, \\[10pt]
+		\dps
+		\pppdpdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}{\varphi^K}\tilde{\varpi}_A+\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\pdif{\tilde{\varpi}_A}{\varphi^K}
+		+\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}\pdif{\tilde{\varpi}_A}{\varphi^J}+\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi}_A}{\varphi^J}{\varphi^K}=0, \\[10pt]
+		\dps
+		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}\pdif{\tilde{\varpi}_A}{\varpi_J}=-\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi_A}}{\varpi_J}{\varphi^K}, \\[10pt]
+		\dps
+		\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi}_A}{\varpi_J}{\varpi_K}=0.
+	}
+}
+Also from the transformation law of the Christoffel symbol~(\ref{eq: christoffel trs.}), the relation of its derivatives can be obtained as
+\bae{
+	&\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\Gamma^J_{KL}+\pdif{\tilde{\varphi}^A}{\varphi^J}\Gamma^J_{KL,I} \nonumber \\
+	&=\ppdpdpd{\tilde{\varphi}^B}{\varphi^I}{\varphi^K}\pdif{\tilde{\varphi}^C}{\varphi^L}\Gamma^A_{BC}
+	+\pdif{\tilde{\varphi}^B}{\varphi^K}\ppdpdpd{\tilde{\varphi}^C}{\varphi^I}{\varphi^L}\Gamma^A_{BC}
+	+\pdif{\tilde{\varphi}^B}{\varphi^K}\pdif{\tilde{\varphi}^C}{\varphi^L}\Gamma^A_{BC,I}+\pppdpdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}{\varphi^L}.
+}
+The It\^o's lemma gives the transformation of $\dd\varpi_I$:
+\bae{
+	\dd\tilde{\varpi}_A=\pdif{\tilde{\varpi}_A}{\varphi^I}\dd\varphi^I+\pdif{\tilde{\varpi}_A}{\varpi_I}\dd\varpi_I
+	+\frac{1}{2}\ppdpdpd{\tilde{\varpi}_A}{\varphi^I}{\varphi^J}\dd\varphi^I\dd\varphi^J+\ppdpdpd{\tilde{\varpi}_A}{\varphi^I}{\varpi_J}\dd\varphi^I\dd\varpi_J
+	+\frac{1}{2}\ppdpdpd{\tilde{\varpi}_A}{\varpi_I}{\varpi_J}\dd\varpi_I\dd\varpi_J.
+}
+Combining them and the tensorial transformation of the Riemann tensor $R^S{}_{JIK}$, one finds that the Graham's covariant derivative of the momentum is indeed a vector:
+\bae{
+	\pdif{\tilde{\varphi}^A}{\varphi^I}\calD\varpi_A=\calD\varpi_I.
+}
+
+
 
 
 
@@ -288,7 +384,7 @@ corresponding with the field space metric $G_{IJ}$:
 
 
 
-{
+
 %\appendix
 
 
