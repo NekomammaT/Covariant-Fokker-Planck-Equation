@@ -161,7 +161,7 @@ with use of the covariant spacetime derivatives,
 
 For a function only of $\phi$, these derivatives can be clearly rewritten by the covariant field derivative $\nabla_I$ as
 \bae{
-    D_{N,i}\calO=(\partial_{N,i}\phi^I)\nabla_I\calO.
+    D_{N,i}\calO(\phi)=(\partial_{N,i}\phi^I)\nabla_I\calO(\phi).
 }
 Therefore, introducing the spin connection $\omega_{Iab}$ by
 \bae{
@@ -256,7 +256,7 @@ successfully field-space covariant and independent of the choice of the vielbein
 \subsection{Covariant Fokker-Planck and Langevin equations}
 
 The covariant Fokker-Planck (FP) equation~(\ref{eq: covFP in field space}) in the field-space formulation under the slow-roll approximation
-would be naturally generalized to the phase-space formulation.
+would be naturally generalized to the full phase-space formulation.
 In this subsection, let us start by assuming the covariant FP equation in phase space and then derive the corresponding Langevin equation.
 
 Making use of the phase-space covariant field derivative $D_{\varphi^I}$
@@ -345,14 +345,14 @@ Noting the arguments in the left side, one derives the following formula by diff
 \bae{
 	\bce{
 		\dps
-		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\tilde{\varpi}_A=-\pdif{\tilde{\varphi}^A}{\varphi^I}\pdif{\tilde{\varpi}_A}{\varphi^J}, \\[10pt]
+		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\tilde{\varpi}_A+\pdif{\tilde{\varphi}^A}{\varphi^I}\pdif{\tilde{\varpi}_A}{\varphi^J}=0, \\[10pt]
 		\dps
 		\pdif{\tilde{\varphi}^A}{\varphi^I}\pdif{\tilde{\varpi}_A}{\varpi_J}=\delta^J_I, \\[10pt]
 		\dps
 		\pppdpdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}{\varphi^K}\tilde{\varpi}_A+\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\pdif{\tilde{\varpi}_A}{\varphi^K}
 		+\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}\pdif{\tilde{\varpi}_A}{\varphi^J}+\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi}_A}{\varphi^J}{\varphi^K}=0, \\[10pt]
 		\dps
-		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}\pdif{\tilde{\varpi}_A}{\varpi_J}=-\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi_A}}{\varpi_J}{\varphi^K}, \\[10pt]
+		\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^K}\pdif{\tilde{\varpi}_A}{\varpi_J}+\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi_A}}{\varpi_J}{\varphi^K}=0, \\[10pt]
 		\dps
 		\pdif{\tilde{\varphi}^A}{\varphi^I}\ppdpdpd{\tilde{\varpi}_A}{\varpi_J}{\varpi_K}=0.
 	}
