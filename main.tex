@@ -227,7 +227,7 @@ After moving to the It\^o's expression, noting that functions of $\bar{\varphi}^
 Note that the induced term $\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\dd N$ is nothing but the correction term introduced by Graham~\cite{graham1985covariant}.
 According to this reference, the covariant derivative for the It\^o process $\varphi^I$ is defined by
 \bae{
-	\calD\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K},
+	\calD\varphi^I:=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}\calP_{\phi^J\phi^K}\dd N,
 }
 and then the Langevin equation can be rewritten covariantly making use of this derivative:
 \bae{
@@ -290,7 +290,10 @@ corresponding with the field space metric $G_{IJ}$:
     +\Gamma^R_{JK}\Gamma^S_{IR}-\Gamma^R_{IJ}\Gamma^S_{KR}.
 }
 
-The corresponding It\^o's Langevin equation immediately follows as
+The corresponding It\^o's Langevin equation immediately follows as\footnote{In terms of $A_{QP}$ instead of $A_{Q\tilde{P}}$, $\varpi$'s EoM reads
+\bae{
+    \dd\varpi_I=\left(-3\varpi_I-\frac{V_I}{H}+\Gamma^S_{IJ}\frac{\varpi_S\varpi^J}{H}+\frac{1}{2}\left(\Gamma^S_{IJ,K}-\Gamma^R_{JK}\Gamma^S_{IR}-\Gamma^R_{IJ}\Gamma^S_{KR}\right)\varpi_SA_{QQ}{}^{JK}+\Gamma^J_{IK}A_{QP}{}^K{}_J\right)\dd N+g_{PIa}\dd W_a.
+}}
 \bae{
 	\bce{
 		\dps
