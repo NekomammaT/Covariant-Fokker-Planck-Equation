@@ -67,6 +67,7 @@
 \newcommand{\kdx}{\mathbf{k}\cdot\mathbf{x}}
 \newcommand{\Det}{\mathrm{Det}}
 \newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\IA}{\mathrm{IA}}
 
 \newcommand{\calD}{\mathcal{D}}
 \newcommand{\scrD}{\mathscr{D}}
@@ -464,7 +465,7 @@ To clearly see their effects on the IR EoM derived by the variation of the effec
 \bae{
     \delta S^{(1)}=&\,\int\dd t\int\frac{\dd^3k}{(2\pi^3)}\delta(t-t_\sigma(k)) \nonumber \\
     &\times\left[(\tilde{P}_I(t,\mathbf{k})+\cdots)\delta\varphi^I(t,-\mathbf{k})-\left(Q^I(t,\mathbf{k})-\left(\frac{1}{2}\Gamma^I_{JK}Q^JQ^K\right)(t,\mathbf{k})\right)D\varpi_I(t,-\mathbf{k})\right] \nonumber \\
-    =:&\,\int\dd^4x\left[Q^I_X\delta\varphi_{XI}+\frac{1}{2}Q_X^I\delta\Lambda_{XYIJ}Q^J_Y\right],
+    =:&\,\int\dd^4x\left[Q^I_X\delta\tilde{\varphi}_{XI}+\frac{1}{2}Q_X^I\delta\Lambda_{XYIJ}Q^J_Y\right],
 }
 where
 \bae{
@@ -474,17 +475,19 @@ and in the last equation, we summarize the couplings in a shorthand notation as
 \bae{
     \bce{
         \dps
-        \delta\varphi_{QI}(t,\mathbf{x})=-\int\frac{\dd^3k}{(2\pi)^3}\ee^{-i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))D\varpi_I(t,\mathbf{k}), \\ 
+        \delta\tilde{\varphi}_{QI}(t,\mathbf{x})=\int\frac{\dd^3k}{(2\pi)^3}\ee^{i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))\delta\varphi_{QI}(t,\mathbf{k})
+        :=-\int\frac{\dd^3k}{(2\pi)^3}\ee^{i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))D\varpi_I(t,\mathbf{k}), \\ 
         \dps
-        \delta\varphi_{\tilde{P}I}=\int\frac{\dd^3k}{(2\pi)^3}\ee^{-i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))\delta\varphi^I(t,\mathbf{k}), \\
+        \delta\tilde{\varphi}_{\tilde{P}I}(t,\mathbf{x})=\int\frac{\dd^3k}{(2\pi)^3}\ee^{i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))\delta\varphi_{\tilde{P}I}(t,\mathbf{k})
+        :=\int\frac{\dd^3k}{(2\pi)^3}\ee^{i\mathbf{k}\cdot\mathbf{x}}\delta(t-t_\sigma(k))\delta\varphi^I(t,\mathbf{k}), \\
         \dps
-        \delta\Lambda_{QQIJ}(t,\mathbf{x})=\Gamma^I_{JK}(t,\mathbf{x})\int\frac{\dd^3k}{(2\pi)^3}\ee^{-i\kdx}\delta(t-t_\sigma(k))D\varpi_I(t,\mathbf{k}).
+        \delta\Lambda_{QQIJ}(t,\mathbf{x})=\Gamma^K_{IJ}(t,\mathbf{x})\int\frac{\dd^3k}{(2\pi)^3}\ee^{i\kdx}\delta(t-t_\sigma(k))D\varpi_K(t,\mathbf{k}).
     }
 }
 $t_\sigma(k)$ represents the crossing time of the coarse-graining scale $k=\sigma aH$.
 Accordingly we consider the following action.
 \bae{
-    S=S^{(0)}+\int\dd^4x\left[Q_X^I\delta\varphi_{XI}+\frac{1}{2}Q^I_X(\Lambda_{XYIJ}+\delta\Lambda_{XYIJ})Q^J_Y\right].
+    S=S^{(0)}+\int\dd^4x\left[Q_X^I\delta\tilde{\varphi}_{XI}+\frac{1}{2}Q^I_X(\Lambda_{XYIJ}+\delta\Lambda_{XYIJ})Q^J_Y\right].
 }
 
 
@@ -492,8 +495,8 @@ Accordingly we consider the following action.
 
 As usual, the partition function for the expectation value with respect to the in-vacuum is given by the Schwinger-Keldysh formalism, doubling the degrees of freedom as
 \bae{
-    &Z[\calJ_X^{Ia},\scrJ_{XIa}]=\calN\int\scrD\delta\varphi_{XIa}\ee^{i(S^{(0)+}-S^{(0)-}+\int\dd^4x\calJ_X^{Ia}\delta\varphi_{XIa})} \nonumber \\
-    &\quad\times\int\scrD Q^{Ia}_X\exp\left[i\int\dd^4x(\delta\varphi_{XIa}+\scrJ_{XIa})Q^{Ia}_X+\frac{i}{2}\int\dd^4x\dd^4y\,Q^{Ia}_X(\tilde{\Lambda}_{XYIJab}+\delta\tilde{\Lambda}_{XYIJab})Q^{Jb}_Y\right],
+    &Z[\calJ_X^{Ia},\scrJ_{XIa}]=\calN\int\scrD\delta\varphi_{XIa}\ee^{i(S^{(0)+}-S^{(0)-}+\int\dd^4x\calJ_X^{Ia}\delta\tilde{\varphi}_{XIa})} \nonumber \\
+    &\quad\times\int\scrD Q^{Ia}_X\exp\left[i\int\dd^4x(\delta\tilde{\varphi}_{XIa}+\scrJ_{XIa})Q^{Ia}_X+\frac{i}{2}\int\dd^4x\dd^4y\,Q^{Ia}_X(\tilde{\Lambda}_{XYIJab}+\delta\tilde{\Lambda}_{XYIJab})Q^{Jb}_Y\right],
 }
 where the two-dimensional indices $a$ and $b$ take $+$ or $-$ and are raised or lowered by the metric $\sigma_{3ab}=\sigma_3^{ab}=\diag(1,-1)$, and the matrix derivative operators are introduced as
 \bae{
@@ -503,37 +506,162 @@ where the two-dimensional indices $a$ and $b$ take $+$ or $-$ and are raised or 
 $\calN$ formally represents the $\delta\varphi$-independent normalization factor.
 Integrating $Q$ out, the partition function reads
 \bae{
-    &Z[\calJ^{Ia}_X,\scrJ_{XIa}]=\frac{\calN}{\Det(1+\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})}\int\scrD\delta\varphi_{XIa}\ee^{i(S^{(0)+}-S^{(0)-}+\int\dd^4x\scrJ^{Ia}_X\delta\varphi_{XIa})} \nonumber \\
-    &\quad\times\exp\left[-\frac{i}{2}\int\dd^4x\dd^4y\,(\delta\varphi_{XIa}+\scrJ_{XIa})(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\delta\varphi_Y^{Jb}+\scrJ_Y^{Jb})\right].
+    &Z[\calJ^{Ia}_X,\scrJ_{XIa}]=\frac{\calN}{\Det(1+\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})}\int\scrD\delta\varphi_{XIa}\ee^{i(S^{(0)+}-S^{(0)-}+\int\dd^4x\scrJ^{Ia}_X\delta\tilde{\varphi}_{XIa})} \nonumber \\
+    &\quad\times\exp\left[-\frac{i}{2}\int\dd^4x\dd^4y\,(\delta\tilde{\varphi}_{XIa}+\scrJ_{XIa})(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\delta\tilde{\varphi}_Y^{Jb}+\scrJ_Y^{Jb})\right].
 }
 We assume that the $\delta\varphi$ integration simply replaces $\delta\varphi$ by its vacuume expectation value $\braket{\delta\varphi}$ as IR modes are expected to be classicalized well.
 Therefore we obtain
 \bae{
-    Z[\calJ^{Ia}_X,\scrJ_{XIa}]\simeq&\,\frac{\calN}{\Det(1+\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})}\exp\left[i\left(S^{(0)+}-S^{(0)-}+\int\dd^4x\calJ_X^{Ia}\braket{\delta\varphi_{XIa}}\right)\right. \nonumber \\
-    &\left.-\frac{1}{2}\int\dd^4x\dd^4y\,(\braket{\delta\varphi_{XIa}}+\scrJ_{XIa})(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\braket{\delta\varphi_Y^{Jb}}+\scrJ_Y^{Jb})\right] \nonumber \\
+    Z[\calJ^{Ia}_X,\scrJ_{XIa}]\simeq&\,\frac{\calN}{\Det(1+\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})}\exp\left[i\left(S^{(0)+}-S^{(0)-}+\int\dd^4x\calJ_X^{Ia}\braket{\delta\tilde{\varphi}_{XIa}}\right)\right. \nonumber \\
+    &\left.-\frac{1}{2}\int\dd^4x\dd^4y\,(\braket{\delta\tilde{\varphi}_{XIa}}+\scrJ_{XIa})(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\braket{\delta\tilde{\varphi}_Y^{Jb}}+\scrJ_Y^{Jb})\right] \nonumber \\
     =:&\,\calN\ee^{iW[\calJ_X^{Ia},\scrJ_{XIa}]}.
 }
 The effective action $\Gamma$ is given by the Legendre transformation of $W$ as
 \bae{
-    \Gamma[\braket{\delta\varphi_{XIa}},\braket{Q_X^{Ia}}]=W[\calJ_X^{Ia},\scrJ_{XIa}]-\int\dd^4x\calJ_X^{Ia}\braket{\delta\varphi_{XIa}}-\int\dd^4x\scrJ_{XIa}\braket{Q_X^{Ia}},
+    \Gamma[\braket{\delta\varphi_{XIa}},\braket{Q_X^{Ia}}]=W[\calJ_X^{Ia},\scrJ_{XIa}]-\int\dd^4x\calJ_X^{Ia}\braket{\delta\tilde{\varphi}_{XIa}}-\int\dd^4x\scrJ_{XIa}\braket{Q_X^{Ia}},
 }
 where
 \bae{
-    \braket{Q_X^{Ia}}=\frac{\delta W}{\delta\scrJ_{XIa}}=-\int\dd^4y\,(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\braket{\delta\varphi_Y^{Jb}}+\scrJ_Y^{Jb}).
+    \braket{Q_X^{Ia}}=\frac{\delta W}{\delta\scrJ_{XIa}}=-\int\dd^4y\,(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b(\braket{\delta\tilde{\varphi}_Y^{Jb}}+\scrJ_Y^{Jb}).
 }
 Therefore the explicit form of $\Gamma$ reads
 \bae{
     \Gamma[\braket{\delta\varphi_{XIa}},\braket{Q_X^{Ia}}]=&\,S^{(0)+}-S^{(0)-}+i\log\Det(1+\tilde{\Lambda}^{-1}\delta\tilde{\Lambda}) \nonumber \\
-    &+\frac{1}{2}\int\dd^4x\dd^4y\braket{Q_X^{Ia}}(\tilde{\Lambda}+\delta\tilde{\Lambda})_{XYIJab}\braket{Q_Y^{Jb}}+\int\dd^4x\braket{\delta\varphi_{XIa}}\braket{Q_X^{Ia}}.
+    &+\frac{1}{2}\int\dd^4x\dd^4y\braket{Q_X^{Ia}}(\tilde{\Lambda}+\delta\tilde{\Lambda})_{XYIJab}\braket{Q_Y^{Jb}}+\int\dd^4x\braket{\delta\tilde{\varphi}_{XIa}}\braket{Q_X^{Ia}}.
 }
 The vacuum expectation value $\braket{Q}$ is given by the stationary point of the effective action as
 \bae{
-    \frac{\delta\Gamma}{\delta\braket{Q_X^{Ia}}}=0, \quad \Leftrightarrow \quad \braket{Q_X^{Ia}}=-\int\dd^4y(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b\braket{\delta\varphi_X^{Jb}}
+    \frac{\delta\Gamma}{\delta\braket{Q_X^{Ia}}}=0, \quad \Leftrightarrow \quad \braket{Q_X^{Ia}}=-\int\dd^4y(\tilde{\Lambda}+\delta\tilde{\Lambda})^{-1}{}_{XY}{}^I{}_J{}^a{}_b\braket{\delta\tilde{\varphi}_X^{Jb}}
 }
 Substituting this solution back into the effective action and making use of the formula $\log\Det A=\Tr\log A$ and the linear expansion $\log(1+A)\simeq A$, one finally obtains the IR effective action, at the leading order in $\delta\varphi$, as
-\bae{
-    \Gamma_\IR\simeq S^{(0)+}-S^{(0)-}+i\Tr(\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})-\frac{1}{2}\int\dd^4x\dd^4y\braket{\delta\varphi_{XIa}}\tilde{\Lambda}^{-1}{}_{XY}{}^I{}_J{}^a{}_b\braket{\delta\varphi_Y^{Jb}}.
+\bae{\label{eq: GammaIR}
+    \Gamma_\IR&\simeq S^{(0)+}-S^{(0)-}+i\Tr(\tilde{\Lambda}^{-1}\delta\tilde{\Lambda})-\frac{1}{2}\int\dd^4x\dd^4y\braket{\delta\tilde{\varphi}_{XIa}}\tilde{\Lambda}^{-1}{}_{XY}{}^I{}_J{}^a{}_b\braket{\delta\tilde{\varphi}_Y^{Jb}} \nonumber \\
+    &=:S^{(0)+}-S^{(0)-}+\delta S_\IA^\mathrm{det}+\delta S_\IA^\xi
 }
+The UV-correction $\delta S_\IA^\mathrm{det}$ and $\delta S_\IA^\xi$ are often called \emph{influence action}.
+Hereafter we will omit brackets.
+
+
+
+
+\subsection{Influence action}
+
+Let us first discuss the second influence action $\delta S_\IA^\xi$.
+$\tilde{\Lambda}^{-1}$ is nothing but the closed-time-path ordered two point function of $Q$ as
+\bae{
+	\braket{T_C\hat{Q}_X^{Ia}(x)\hat{Q}_Y^{Jb}(y)}=\left.\frac{1}{i}\frac{\delta}{\delta\scrJ_{XIa}(x)}\frac{1}{i}\frac{\delta}{\delta\scrJ_{YJb}(y)}Z\right|_{\calJ=\scrJ=0}=i\tilde{\Lambda}^{-1}{}_{XY}{}^{IJab}(x,y),
+}
+where the time ordering is defined by
+\bae{
+	T_C\hat{Q}_{X}^{Ia}(x)\hat{Q}_Y^{Jb}(y)=
+	\bce{
+		\dps
+		\theta(t-t^\prime)\hat{Q}_{X}^{Ia}(x)\hat{Q}_Y^{Jb}(y)+\theta(t^\prime-t)\hat{Q}_Y^{Jb}(y)\hat{Q}_X^{Ia}(x), & (a=+,\,b=+), \\
+		\dps
+		\hat{Q}_Y^{Jb}(y)\hat{Q}_X^{Ia}(x), & (a=+,\,b=-), \\
+		\dps
+		\hat{Q}_X^{Ia}(x)\hat{Q}_Y^{Jb}(y), & (a=-,\,b=+), \\
+		\dps
+		\theta(t^\prime-t)\hat{Q}_{X}^{Ia}(x)\hat{Q}_Y^{Jb}(y)+\theta(t-t^\prime)\hat{Q}_Y^{Jb}(y)\hat{Q}_X^{Ia}(x), & (a=-,\,b=-).
+	}
+}
+Therefore, expanding the field operators by the mode functions as
+\bae{\label{eq: mode expansion}
+	\hat{Q}_X^{Ia}(x)=\int\dk\left[Q_{X\alpha}^{Ia}(t,k)\hat{a}_\alpha(\mathbf{k})\ee^{i\mathbf{k}\cdot\mathbf{x}}
+	+Q_{X\alpha}^{*Ia}(t,k)\hat{a}^\dagger_\alpha(\mathbf{k})\ee^{-i\mathbf{k}\cdot\mathbf{x}}\right],
+}
+with the annihilation-creation operators
+\bae{\label{eq: aadagger}
+	[\hat{a}_\alpha(\mathbf{k}),\hat{a}^\dagger_\beta(\mathbf{q})]=(2\pi)^3\delta_{\alpha\beta}\delta^{(3)}(\mathbf{k}-\mathbf{q}),
+}
+the explicit form of $\tilde{\Lambda}^{-1}$ is given by
+\bae{
+	&\tilde{\Lambda}^{-1}{}_{XY}{}^{IJab}(x,x^\prime)=-i\braket{T_C\hat{Q}_X^{Ia}(x)\hat{Q}_Y^{Jb}(x^\prime)} \nonumber \\
+	&=-i\int\dk\bpme{
+		\begin{array}{c}
+			\theta(t-t^\prime)Q_{X\alpha}^I(t,k)Q^{*J}_{Y\alpha}(t^\prime,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}-\mathbf{x}^\prime)} \\
+			+\theta(t^\prime-t)Q_{Y\alpha}^J(t^\prime,k)Q_{X\alpha}^{*I}(t,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}^\prime-\mathbf{x})}
+		\end{array}
+		& Q^J_{Y\alpha}(t^\prime,k)Q_{X\alpha}^{*I}(t,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}^\prime-\mathbf{x})} \\
+		Q_{X\alpha}^I(t,k)Q^{*J}_{Y\alpha}(t^\prime,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}-\mathbf{x}^\prime)} &
+		\begin{array}{c}
+			\theta(t^\prime-t)Q_{X\alpha}^I(t,k)Q^{*J}_{Y\alpha}(t^\prime,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}-\mathbf{x}^\prime)} \\
+			+\theta(t-t^\prime)Q^J_{Y\alpha}(t^\prime,k)Q_{X\alpha}^{*I}(t,k)\ee^{i\mathbf{k}\cdot(\mathbf{x}^\prime-\mathbf{x})}
+		\end{array}
+	}.
+}
+Here the so-called Keldysh basis is useful rather than $+/-$ one:
+\bae{
+	\bpme{
+		\delta\bar{\varphi}_X^I \\
+		\delta\varphi_X^{I\Delta}
+	} = \bpme{
+		1/2 & 1/2 \\
+		1 & -1
+	}\bpme{
+		\delta\varphi_X^{I+} \\
+		\delta\varphi_X^{I-}
+	}.
+}
+Then $\delta S_\IA^\xi$ reads
+\bae{
+	\delta S_\IA^\xi=&\,\frac{i}{2}\int\dd^4x\dd^4x^\prime\delta\varphi_{XI}^\Delta(x)\Re[\Pi_{XY}{}^{IJ}(x,x^\prime)]\delta\varphi_{YJ}^\Delta(x^\prime) \nonumber \\
+	&-2\int\dd^4x\dd^4x^\prime\theta(t-t^\prime)\delta\varphi_{XI}^\Delta(x)\Im[\Pi_{XY}{}^{IJ}(x,x^\prime)]\delta\bar{\varphi}_{YJ}(x^\prime),
+}
+where
+\bae{
+	\Pi_{XY}{}^{IJ}(x,x^\prime)&=\int\dk\ee^{i\mathbf{k}\cdot(\mathbf{x}-\mathbf{x}^\prime)}\delta(t-t_\sigma)\delta(t^\prime-t_\sigma)
+	Q_{X\alpha}^I(t,k)Q^{*J}_{Y\alpha}(t^\prime,k) \nonumber \\
+	&=\frac{\dot{k}_\sigma}{k_\sigma}\frac{\sin k_\sigma r}{k_\sigma r}\calP_{XY}{}^{IJ}(k_\sigma)\delta(t-t^\prime),
+}
+with
+\bae{\label{eq: calP}
+	\calP_{XY}{}^{IJ}(k)=\frac{k^3}{2\pi^2}Q_{X\alpha}^I(k)Q_{Y\alpha}^{*J}(k).
+}
+The second term is simply quadratic in $\delta\varphi$ and neglected in the IR EoM. However the first term is imaginary and therefore rather interpreted as a Gaussian integral
+by introducing the auxiliary fields $\xi$:
+\bae{\label{eq: functional Fourier trs}
+	\ee^{iS_\IA^\xi}=\calN\int\scrD\xi_X^IP[\xi_X^I]\ee^{i\int\dd^4x\xi_X^I\delta\varphi_{XI}^\Delta},
+}
+where
+\bae{
+	P[\xi_X^I]=\calN\exp\left[-\frac{1}{2}\int\dd^4x\dd^4x^\prime\xi_{X}^I(x)(\Re\Pi^{-1})_{XYIJ}(x,x^\prime)\xi_Y^J(x^\prime)\right].
+}
+The Gaussian weight $P[\xi_X^I]$ determines the statistical properties of $\xi$ as
+\bae{
+	\bce{
+		\dps
+		\braket{\xi_X^I(x)}=\int\scrD\xi_X^I\,\xi_X^I(x)P[\xi_X^I]=0, \\[10pt]
+		\dps
+		\braket{\xi_X^I(x)\xi_{Y}^J(x^\prime)}=\int\scrD\xi_X^I\,\xi_X^I(x)\xi_{Y}^J(x^\prime)P[\xi_X^I]=\Re\Pi_{XY}{}^{IJ}(x,x^\prime),
+	}
+}
+and the other part in Eq.~(\ref{eq: functional Fourier trs}) is interpreted as the couplings between $\xi$ and $\varphi$.
+Then this part is rather considered as a true IR effective action
+\bae{
+	\delta S_\eff^\xi=\int\dd^4x\xi_X^I\delta\varphi_{XI}^\Delta=\int\dd^4x\left[\xi_Q^I(-\delta\varpi_I^\Delta+\Gamma^K_{IJ}\varpi_K\delta\varphi^{J\Delta})
+	+\xi_{\tilde{P}I}\delta\varphi^{I\Delta}\right].
+}
+
+On the other hand, $\delta S_\IA^\mathrm{det}$ is simply summarized by considering only $\delta\Lambda_{QQ}$ as
+\bae{
+	\delta S_\IA^\mathrm{det}=\frac{1}{2}\int\dd^4x\int\frac{\dd^3k}{(2\pi)^3}\frac{\dd^3k^\prime}{(2\pi)^3}\Re[Q_\alpha^I(t,k)Q_\alpha^J(t,k)]\Gamma_{IJ}^K(t,\mathbf{x})
+	\ee^{i\mathbf{k}^\prime\cdot\mathbf{x}}\delta(t-t_\sigma(k^\prime))D\varpi_K^\Delta(t,\mathbf{k}^\prime).
+}
+We here only keep $D\varpi^\Delta$ term and omit $D\bar{\varpi}$ because we later only vary $\Delta$-modes.
+\Blue{$\delta(t-t_\sigma(k^\prime))$ rather should be $\delta(t-t_\sigma(k))$ (to be modified). If one adopts the latter delta function, $\delta S_\IA^\mathrm{det}$ reads}
+\bae{
+	\delta S_\IA^\mathrm{det}=\frac{1}{2}\int\dd^4x\calP_{QQ}{}^{IJ}(k_\sigma)\Gamma^K_{IJ}D\varpi_K^\Delta.
+}
+
+Therefore one obtains the covariant EoM for $\varphi$ as
+\bae{
+	\left.\frac{\delta S^{(0)+}-\delta S^{(0)-}+\delta S_\IA^\mathrm{det}+\delta S_\eff^\xi}{\delta\varpi_I^\Delta}\right|_{\varphi^\Delta=\varpi^\Delta=0}=0, \quad \Leftrightarrow
+	\quad \dot{\varphi}^I+\frac{1}{2}\Gamma^I_{JK}\calP_{QQ}{}^{JK}=\frac{N_\IR}{a^3}\varpi^I+\xi_Q^I.
+}
+\YT{$\varpi$'s EoM will be obtained}.
+
+
 
 
 
