@@ -107,6 +107,8 @@
 \newcommand{\mathblue}[1]{\textcolor{blue}{#1}}
 \newcommand{\YT}[1]{\textcolor{blue}{\sffamily [YT: #1]}}
 
+\allowdisplaybreaks[3]
+
 
 
 \begin{document}
@@ -769,7 +771,7 @@ where
         \dps
         C^\phi=\sqrt{\gamma}\left[\frac{G^{IJ}}{2\gamma}\pi_I\pi_J+\frac{G_{IJ}}{2}\gamma^{ij}\partial_i\phi^I\partial_j\phi^J+V\right], & 
         \dps\qquad
-        C^G=\frac{2}{\sqrt{\gamma}\Mpl^2}\left[\pi_{ij}\pi^{ij}-\frac{1}{2}\left(\pi^i_i\right)^2-\frac{\gamma}{4}\calR^{(3)}\right], \\
+        C^G=\frac{2}{\sqrt{\gamma}\Mpl^2}\left[\pi_{ij}\pi^{ij}-\frac{1}{2}\left(\pi^i_i\right)^2-\frac{\gamma}{4}\Mpl^4\calR^{(3)}\right], \\
         C^\phi_i=\pi_I\partial_i\phi^I, &
         \dps\qquad
         C^G_i=-2\partial_k(\gamma_{ij}\pi^{jk})+\pi^{jk}\partial_i\gamma_{jk}.
@@ -797,7 +799,11 @@ Hamiltonian constraints also read
     C^\phi&=a^3\left[\frac{G^{IJ}}{2a^6}\pi_I\pi_J+\frac{G_{IJ}}{2a^2}\partial_i\phi^I\partial_i\phi^J+V\right], \\
     C^G&=-\frac{\Mpl^2}{2a\calN^2}\left[(\beta_{i,i})^2-\frac{1}{2}(\beta_{i,j}\beta_{i,j}+\beta_{i,j}\beta_{j,i})-4a^2\calH\beta_{i,i}+6a^4\calH^2\right], \\
     C_i^\phi&=\pi_I\partial_i\phi^I, \\
-    C_i^G&=-\frac{a\Mpl^2}{\calN^2}\left[\calN\left(\beta_{j,ji}-\frac{1}{2}(\beta_{i,jj}+\beta_{j,ij})\right)-\calN_i\beta_{j,j}+\frac{1}{2}\calN_j(\beta_{i,j}+\beta_{j,i})\right].
+    C_i^G&=-\frac{a\Mpl^2}{\calN^2}\left[\calN\left(\beta_{j,ji}-\frac{1}{2}(\beta_{i,jj}+\beta_{j,ij})\right)-\calN_i(\beta_{j,j}-2a^2\calH)+\frac{1}{2}\calN_j(\beta_{i,j}+\beta_{j,i})\right].
+}
+Note that $\pi^{ij}\dot{\gamma}_{ij}$ and $\calN C^G$ can be simply summarized as
+\bae{
+	\pi^{ij}\dot{\gamma}_{ij}-\calN C^G=\frac{\Mpl^2}{2a\calN}\left[(\beta_{i,i})^2-\frac{1}{2}(\beta_{i,j}\beta_{i,j}+\beta_{i,j}\beta_{j,i})-6a^4\calH^2\right].
 }
 
 We then decompose the physical variables into the IR and UV modes:
@@ -806,24 +812,24 @@ We then decompose the physical variables into the IR and UV modes:
 }
 The order by order expansion of each quantity in UV modes can be summarized as
 \bae{
-    &\bce{
-        \dps
-        (\pi^{ij}\dot{\gamma}_{ij})^{(0)} &
-        \dps
-        =-\frac{6a^3\Mpl^2\calH}{\calN_\IR}, \\
-        \dps
-        (\pi^{ij}\dot{\gamma}_{ij})^{(1)} &
-        \dps
-        =\frac{2a\Mpl^2\calH}{\calN_\IR}\nabla^2\psi+\frac{6a^3\Mpl^2\calH^2}{\calN_\IR^2}\alpha, \\
-        \dps
-        (\pi^{ij}\dot{\gamma}_{ij})^{(2)} &
-        \dps
-        =-\frac{2a\Mpl^2\calH}{\calN_\IR^2}\alpha\nabla^2\psi-\frac{6a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2, \\
-        \dps
-        (\pi^{ij}\dot{\gamma}_{ij})^{(3)} &
-        \dps
-        =\frac{2a\Mpl^2\calH}{\calN_\IR^3}\alpha^2\nabla^2\psi+\frac{6a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3,
-    } \\
+	&\bce{
+    		\dps
+ 	   	(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(0)} &
+		\dps
+		=-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR}, \\
+		\dps
+		(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(1)} &
+		\dps
+		=\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^2}\alpha, \\
+		\dps
+		(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(2)} & 
+		\dps
+		=-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2+\frac{\Mpl^2}{2a\calN_\IR}[(\nabla^2\psi)^2-\psi_{ij}\psi_{ij}], \\
+		\dps
+		(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(3)} & 
+		\dps
+		=\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3-\frac{\Mpl^2}{2a\calN_\IR^2}\alpha[(\nabla^2\psi)^2-\psi_{ij}\psi_{ij}],
+	    } \\
     &\bce{
         \dps
         (\pi_I\dot{\phi}^I)^{(0)} & 
@@ -839,6 +845,10 @@ The order by order expansion of each quantity in UV modes can be summarized as
         =\dpi_I\delta\dot{\phi}^I \\
         &\dps
         =\Dpi_ID_t\dphi^I+\Gamma^K_{IJ}\varpi_K\dphi^ID_t\dphi^J-\Gamma^I_{JK}\dot{\varphi}^J\dphi^K\Dpi_I-\Gamma^I_{JK}\Gamma^L_{IM}\dot{\varphi}^J\varpi_L\dphi^K\dphi^M, \\
+        &\dps
+        \to\Dpi_ID_t\dphi^I-\frac{1}{2}(\Gamma^K_{IJ,L}+\Gamma^K_{LS}\Gamma^S_{IJ})\dot{\varphi}^L\varpi_K\dphi^I\dphi^J \\
+        &\dps \qquad
+        -\frac{1}{2}\Gamma^K_{IJ}(D_t\varpi_K)\dphi^I\dphi^J-\Gamma^I_{JK}\dot{\varphi}^J\dphi^K\Dpi_I, \\
         \dps
         (\pi_I\dot{\phi}^I)^{(3)} &
         \dps
@@ -856,12 +866,79 @@ The order by order expansion of each quantity in UV modes can be summarized as
         \dps
         {C^\phi}^{(2)} &
         \dps
-        =a^3\left[\frac{G^{IJ}{}_{,KL}}{4a^6}\varpi_I\varpi_J\dphi^K\dphi^L+\frac{G^{IJ}{}_{,K}}{a^6}\varpi_I\dpi_J\dphi^K+\frac{G^{IJ}}{2a^6}\dpi_I\dpi_J+\frac{G^{IJ}}{2a^2}\partial_i\dphi^I\partial_i\dphi^J+\frac{1}{2}V_{IJ}\dphi^I\dphi^J\right] \\
+        =a^3\left[\frac{G^{IJ}{}_{,KL}}{4a^6}\varpi_I\varpi_J\dphi^K\dphi^L+\frac{G^{IJ}{}_{,K}}{a^6}\varpi_I\dpi_J\dphi^K+\frac{G^{IJ}}{2a^6}\dpi_I\dpi_J \right. \\
+        & \dps
+        \left. \qquad +\frac{G^{IJ}}{2a^2}\partial_i\dphi^I\partial_i\dphi^J+\frac{1}{2}V_{IJ}\dphi^I\dphi^J\right] \\
         &\dps
-        =a^3\left[\right]
+        =a^3\left[\frac{1}{2a^6}\Dpi_I\Dpi^I+\frac{1}{2a^2}\partial_i\dphi^I\partial_i\dphi_I+\frac{1}{2}V_{I;J}\dphi^I\dphi^J
+        -\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_K\dphi^I\dphi^L \right. \nonumber \\
+        &\dps\qquad
+        \left.-\frac{1}{a^6}\Gamma^K_{IJ}\varpi^I\dphi^J\Dpi_K-\frac{1}{2a^6}(\Gamma^I_{KL,J}+\Gamma^I_{JS}\Gamma^S_{KL})\varpi_I\varpi^J\dphi^K\dphi^L
+        +\frac{1}{2}\Gamma^K_{IJ}V_K\dphi^I\dphi^J\right], \\
+        \dps
+        {C^\phi}^{(3)} &
+        \dps
+        =a^3\left[\frac{G^{IJ}{}_{,KLM}}{12a^6}\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M+\frac{G^{IJ}{}_{,KL}}{2a^6}\varpi_I\dpi_J\dphi^K\dphi^L
+        +\frac{G^{IJ}{}_{,K}}{2a^6}\dpi_I\dpi_J\dphi^K \right. \\
+        &\dps
+        \left.\qquad+\frac{G_{IJ,K}}{2a^2}\dphi^K\partial_i\dphi^I\partial_i\dphi^J+\frac{V_{IJK}}{6}\dphi^I\dphi^J\dphi^K\right] \\
+        &\dps
+        =a^3\left[\right],
+    } \\
+    & \bce{
+    	\dps
+	{C_i^\phi}^{(0)} & = 0, \\
+	\dps
+	{C_i^\phi}^{(1)} &
+	\dps
+	=\varpi_I\partial_i\dphi^I, \\
+	\dps
+	{C_i^\phi}^{(2)} &
+	\dps
+	=\dpi_I\partial_i\dphi^I, \\
+	\dps
+	{C_i^\phi}^{(3)} & = 0,
+    } \\
+    & \bce{
+    	\dps
+	{C_i^G}^{(0)} & = 0, \\
+	\dps
+	{C_i^G}^{(1)} & 
+	\dps
+	= -\frac{2a^3\Mpl^2\calH}{\calN_\IR^2}\alpha_i, \\
+	\dps
+	{C_i^G}^{(2)} & 
+	\dps
+	= \frac{4a^3\Mpl^2\calH}{\calN_\IR^3}\alpha\alpha_i+\frac{a\Mpl^2}{\calN_\IR^2}(\alpha_i\nabla^2\psi-\calN_\IR\alpha_j\psi_{ij}), \\
+	\dps
+	{C_i^G}^{(3)} &
+	\dps
+	= -\frac{6a^3\Mpl^2\calH}{\calN_\IR^4}\alpha^2\alpha_i -\frac{2a\Mpl^2}{\calN_\IR^3}\alpha(\alpha_i\nabla^2\psi-\alpha_j\psi_{ij}).
     }
 }
-
+Therefore one obtains the action order by order as
+\bae{
+	S^{(0)} =& \int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(0)}+(\pi_I\dot{\phi}^I)^{(0)}-\calN^{(0)}{C^\phi}^{(0)}
+	-{\beta^i}^{(0)}({C_i^\phi}^{(0)}+{C_i^G}^{(0)})\right]
+	\nonumber \\
+	=&\int\dd^4x\left[\varpi_I\dot{\varphi}^I-a^3\calN_\IR\left(\frac{1}{2a^6}\varpi_I\varpi^I+V+\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	S^{(1)} =& \int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(1)}+(\pi_I\dot{\phi}^I)^{(1)}-\calN^{(0)}{C^\phi}^{(1)}-\calN^{(1)}{C^\phi}^{(0)} \right. \nonumber \\
+	&\qquad \left.-{\beta^i}^{(0)}({C_i^\phi}^{(1)}+{C_i^G}^{(1)})-{\beta^i}^{(1)}({C_i^\phi}^{(0)}+{C_i^G}^{(0)})\right] \nonumber \\
+	=&\int\dd^4x\left[\Dpi_I\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)-\dphi^I\left(D_t\varpi_I+a^3\calN_\IR V_I\right)
+	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	S^{(2)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(2)}+(\pi_I\dot{\phi}^I)^{(2)}-\calN^{(0)}{C^\phi}^{(2)}-\calN^{(1)}{C^\phi}^{(1)} \right. \nonumber \\
+	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})-{\beta^i}^{(1)}({C_i^\phi}^{(1)}+{C_i^G}^{(1)})\right] \nonumber \\
+	=&\int\dd^4x\left[\Dpi_ID_t\dphi^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2-a^3\alpha\left(\frac{1}{a^6}\varpi^I\Dpi_I+V_I\dphi^I
+	+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right) \right. \nonumber \\
+	&\qquad -a^3\calN_\IR\left(\frac{1}{2a^6}\Dpi_I\Dpi^I-\frac{1}{2}\dphi_I\frac{\nabla^2}{a^2}\dphi^I+\frac{1}{2}V_{I;J}\dphi^I\dphi^J
+	-\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_K\dphi^I\dphi^L\right) \nonumber \\
+	&\qquad -\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left(\frac{1}{2}(\Gamma^K_{JL,I}+\Gamma^K_{IS}\Gamma^S_{JL})\varpi_K\dphi^J\dphi^L
+	+\Gamma_{IJ}^K\dphi^J\Dpi_K\right) \nonumber \\
+	&\qquad \left.-\frac{1}{2}\left(D_t\varpi_I+a^3\calN_\IR V_I\right)\Gamma^I_{JK}\dphi^J\dphi^K\right], \\
+	S^{(3)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(3)}+(\pi_I\dot{\phi}^I)^{(3)}-\calN^{(0)}{C^\phi}^{(3)}-\calN^{(1)}{C^\phi}^{(2)} \right. \nonumber \\
+	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(3)}+{C_i^G}^{(3)})-{\beta^i}^{(1)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})\right] \nonumber \\
+	=&\int\dd^4x\left[\right].
+}
 
 
 
