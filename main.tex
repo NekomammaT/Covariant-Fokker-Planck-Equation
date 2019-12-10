@@ -883,7 +883,19 @@ The order by order expansion of each quantity in UV modes can be summarized as
         &\dps
         \left.\qquad+\frac{G_{IJ,K}}{2a^2}\dphi^K\partial_i\dphi^I\partial_i\dphi^J+\frac{V_{IJK}}{6}\dphi^I\dphi^J\dphi^K\right] \\
         &\dps
-        =a^3\left[\right],
+        =a^3\left[\frac{1}{a^6}\Gamma^I_{JK}\dphi^K\partial_i\dphi_I\partial_i\dphi^K-\frac{1}{a^6}\Gamma^I_{JK}\Dpi_I\Dpi^J\dphi^K \right. \\
+        &\dps\qquad
+        -\frac{1}{a^6}\left(R_K{}^{IJ}{}_L+\Gamma^I_{KL,R}G^{JR}-\Gamma^I_{LS}\Gamma^S_{KR}G^{JR}+\Gamma^I_{RS}\Gamma^S_{KL}G^{JR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \\
+        &\dps\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M+4\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right.\\
+        &\dps\qquad\qquad+\Gamma^I_{KL,S}(5\Gamma^J_{MR}G^{RS}-\Gamma^S_{MR}G^{JR})
+        -2(\Gamma^I_{KS,M}\Gamma^S_{LR}+\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \\
+        &\dps\qquad\qquad
+        +(\Gamma^I_{RS,K}\Gamma^S_{LM}+\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}\Gamma^R_{MN}G^{JN}-2\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS} \\
+        &\dps\qquad\qquad
+        \left.+5\Gamma^I_{KL,S}\Gamma^J_{RM}G^{RS}
+        +2\Gamma^I_{KS}\Gamma^S_{LR}(\Gamma^R_{MN}G^{JN}-4\Gamma^J_{MN}G^{RN})\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \\
+        &\dps\qquad
+        \left.+\frac{1}{6}\left(V_{I;JK}+3\Gamma^S_{IJ}V_{K;S}+(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{KR})V_S\right)\dphi^I\dphi^J\dphi^K\right],
     } \\
     & \bce{
     	\dps
@@ -895,7 +907,7 @@ The order by order expansion of each quantity in UV modes can be summarized as
 	\dps
 	{C_i^\phi}^{(2)} &
 	\dps
-	=\dpi_I\partial_i\dphi^I, \\
+	=\dpi_I\partial_i\dphi^I=(\Dpi_I+\Gamma_{IJ}^K\varpi_K\dphi^J)\partial_i\dphi^I, \\
 	\dps
 	{C_i^\phi}^{(3)} & = 0,
     } \\
@@ -929,7 +941,7 @@ Therefore one obtains the action order by order as
 	S^{(2)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(2)}+(\pi_I\dot{\phi}^I)^{(2)}-\calN^{(0)}{C^\phi}^{(2)}-\calN^{(1)}{C^\phi}^{(1)} \right. \nonumber \\
 	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})-{\beta^i}^{(1)}({C_i^\phi}^{(1)}+{C_i^G}^{(1)})\right] \nonumber \\
 	=&\int\dd^4x\left[\Dpi_ID_t\dphi^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2-a^3\alpha\left(\frac{1}{a^6}\varpi^I\Dpi_I+V_I\dphi^I
-	+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right) \right. \nonumber \\
+	+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_I\dphi^I\frac{\nabla^2}{a^2}\psi \right. \nonumber \\
 	&\qquad -a^3\calN_\IR\left(\frac{1}{2a^6}\Dpi_I\Dpi^I-\frac{1}{2}\dphi_I\frac{\nabla^2}{a^2}\dphi^I+\frac{1}{2}V_{I;J}\dphi^I\dphi^J
 	-\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_K\dphi^I\dphi^L\right) \nonumber \\
 	&\qquad -\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left(\frac{1}{2}(\Gamma^K_{JL,I}+\Gamma^K_{IS}\Gamma^S_{JL})\varpi_K\dphi^J\dphi^L
@@ -937,8 +949,47 @@ Therefore one obtains the action order by order as
 	&\qquad \left.-\frac{1}{2}\left(D_t\varpi_I+a^3\calN_\IR V_I\right)\Gamma^I_{JK}\dphi^J\dphi^K\right], \\
 	S^{(3)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(3)}+(\pi_I\dot{\phi}^I)^{(3)}-\calN^{(0)}{C^\phi}^{(3)}-\calN^{(1)}{C^\phi}^{(2)} \right. \nonumber \\
 	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(3)}+{C_i^G}^{(3)})-{\beta^i}^{(1)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})\right] \nonumber \\
-	=&\int\dd^4x\left[\right].
+	=&\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3-\frac{\Mpl^2}{2a\calN_\IR^2}\alpha[(\nabla^2\psi)^2-\psi_{ij}\psi_{ij}] \right. \nonumber \\
+	&\qquad-a^3\calN_\IR\left[\frac{1}{a^6}\Gamma^I_{JK}\dphi^K\partial_i\dphi_I\partial_i\dphi^K-\frac{1}{a^6}\Gamma^I_{JK}\Dpi_I\Dpi^J\dphi^K \right. \nonumber \\
+    &\quad\qquad
+    -\frac{1}{a^6}\left(R_K{}^{IJ}{}_L+\Gamma^I_{KL,R}G^{JR}-\Gamma^I_{LS}\Gamma^S_{KR}G^{JR}+\Gamma^I_{RS}\Gamma^S_{KL}G^{JR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \nonumber \\
+    &\qquad\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M+4\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right. \nonumber \\
+    &\qquad\qquad\qquad+\Gamma^I_{KL,S}(5\Gamma^J_{MR}G^{RS}-\Gamma^S_{MR}G^{JR})
+    -2(\Gamma^I_{KS,M}\Gamma^S_{LR}+\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \nonumber \\
+    &\qquad\qquad\qquad
+    +(\Gamma^I_{RS,K}\Gamma^S_{LM}+\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}\Gamma^R_{MN}G^{JN}-2\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS} \nonumber \\
+    &\qquad\qquad\qquad
+    \left.+5\Gamma^I_{KL,S}\Gamma^J_{RM}G^{RS}
+    +2\Gamma^I_{KS}\Gamma^S_{LR}(\Gamma^R_{MN}G^{JN}-4\Gamma^J_{MN}G^{RN})\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \nonumber \\
+    &\qquad\qquad
+    \left.+\frac{1}{6}\left(V_{I;JK}+3\Gamma^S_{IJ}V_{K;S}+(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{KR})V_S\right)\dphi^I\dphi^J\dphi^K\right]
+	\nonumber \\
+	&\qquad-a^3\alpha\left[\frac{1}{2a^6}\Dpi_I\Dpi^I+\frac{1}{2a^2}\partial_i\dphi^I\partial_i\dphi_I+\frac{1}{2}V_{I;J}\dphi^I\dphi^J
+    -\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_K\dphi^I\dphi^L \right. \nonumber \\
+    &\qquad\qquad
+    \left.-\frac{1}{a^6}\Gamma^K_{IJ}\varpi^I\dphi^J\Dpi_K-\frac{1}{2a^6}(\Gamma^I_{KL,J}+\Gamma^I_{JS}\Gamma^S_{KL})\varpi_I\varpi^J\dphi^K\dphi^L
+    +\frac{1}{2}\Gamma^K_{IJ}V_K\dphi^I\dphi^J\right] \nonumber \\
+	&\left.-\frac{\psi_i}{a^2}\left[(\Dpi_I+\Gamma^K_{IJ}\varpi_K\dphi^J)\partial_i\dphi^I+\frac{4a^3\Mpl^2\calH}{\calN_\IR^3}\alpha\alpha_i+\frac{a\Mpl^2}{\calN_\IR^2}(\alpha_i\nabla^2\psi-\calN_\IR\alpha_j\psi_{ij})\right]\right].
 }
+
+To be compared with the standard perturbation theory, we hereafter impose the classical background EoM \YT{though it might not be good in the stochastic approach}
+\bae{
+    \dot{\varphi}^I=\frac{\calN_\IR}{a^3}\varpi^I, \qquad D_t\varpi_I=-a^3\calN_\IR V_I.
+}
+Note that $S^{(3)}$ is not covariant. This is because $\dphi^I$ and $\Dpi_I$ are not covariant beyond the linear order. That is, the true cubic action has contributions from $S^{(2)}$ with quadratic expansions of $\dphi^I$ and $\Dpi_I$.
+We then express the expansion in the covariant perturbations $Q^I$ and $\tilde{P}_I$ by square parentheses $[1]$, $[2]$, $[3]$, compared to the round parentheses $(1)$, $(2)$, $(3)$ expressing the expansion in $\dphi^I$ and $\Dpi_I$. For example,
+\bae{
+    \bce{
+        \dps
+        {\dphi^I}^{[1]}=Q^I, \qquad {\dphi^I}^{[2]}=-\frac{1}{2}\Gamma^I_{JK}Q^JQ^K, \\
+        \dps
+        \Dpi_I^{[1]}=\tilde{P}_I, \qquad
+        \Dpi_I^{[2]}=\Gamma_{IJ}^K\tilde{P}_KQ^J+\frac{1}{2}(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{RK})\varpi_SQ^JQ^K,
+    }
+}
+in our definition.
+
+
 
 
 
