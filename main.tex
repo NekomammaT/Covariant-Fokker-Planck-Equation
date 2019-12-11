@@ -973,8 +973,8 @@ Therefore one obtains the action order by order as
 }
 
 To be compared with the standard perturbation theory, we hereafter impose the classical background EoM \YT{though it might not be good in the stochastic approach}
-\bae{
-    \dot{\varphi}^I=\frac{\calN_\IR}{a^3}\varpi^I, \qquad D_t\varpi_I=-a^3\calN_\IR V_I.
+\bae{\label{eq: classical bg EoM}
+    \dot{\varphi}^I\approx\frac{\calN_\IR}{a^3}\varpi^I, \qquad D_t\varpi_I\approx-a^3\calN_\IR V_I.
 }
 Note that $S^{(3)}$ is not covariant. This is because $\dphi^I$ and $\Dpi_I$ are not covariant beyond the linear order. That is, the true cubic action has contributions from $S^{(2)}$ with quadratic expansions of $\dphi^I$ and $\Dpi_I$.
 We then express the expansion in the covariant perturbations $Q^I$ and $\tilde{P}_I$ by square parentheses $[1]$, $[2]$, $[3]$, compared to the round parentheses $(1)$, $(2)$, $(3)$ expressing the expansion in $\dphi^I$ and $\Dpi_I$. For example,
@@ -987,8 +987,20 @@ We then express the expansion in the covariant perturbations $Q^I$ and $\tilde{P
         \Dpi_I^{[2]}=\Gamma_{IJ}^K\tilde{P}_KQ^J+\frac{1}{2}(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{RK})\varpi_SQ^JQ^K,
     }
 }
-in our definition.
+in our definition. The metric perturbations also have order-by-order solutions as
+\bae{
+	\alpha=\alpha^{[1]}+\alpha^{[2]}+\cdots, \qquad \psi=\psi^{[1]}+\psi^{[2]}+\cdots.
+}
+Let us first consider them.
 
+Their linear order solutions are given by the stationary condition of the quadratic action, which only comes from $S^{(2)}$ because $S^{(1)}$ vanishes if one imposes
+the classical background EoM~(\ref{eq: classical bg EoM}). The quadratic action reads
+\bae{
+	S^{(2),[2]}=&\int\dd^4x\left[-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}{\alpha^{[1]}}^2-a^3\alpha^{[1]}\left(\frac{1}{a^6}\varpi^I\tilde{P}_I+V_IQ^I
+	+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi^{[1]}\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi^{[1]} \right. \nonumber \\
+	&\left.-a^3\calN_\IR\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J
+	-\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_KQ^IQ^L\right)+\tilde{P}_ID_tQ^I\right]
+}
 
 
 
