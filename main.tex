@@ -885,15 +885,14 @@ The order by order expansion of each quantity in UV modes can be summarized as
         &\dps
         =a^3\left[\frac{1}{a^6}\Gamma^I_{JK}\dphi^K\partial_i\dphi_I\partial_i\dphi^K-\frac{1}{a^6}\Gamma^I_{JK}\Dpi_I\Dpi^J\dphi^K \right. \\
         &\dps\qquad
-        -\frac{1}{a^6}\left(R_K{}^{IJ}{}_L+\Gamma^I_{KL,R}G^{JR}-\Gamma^I_{LS}\Gamma^S_{KR}G^{JR}+\Gamma^I_{RS}\Gamma^S_{KL}G^{JR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \\
-        &\dps\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M+4\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right.\\
-        &\dps\qquad\qquad+\Gamma^I_{KL,S}(5\Gamma^J_{MR}G^{RS}-\Gamma^S_{MR}G^{JR})
-        -2(\Gamma^I_{KS,M}\Gamma^S_{LR}+\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \\
+        -\frac{1}{2a^6}\left(\Gamma^I_{KR,L}G^{JR}+\Gamma^S_{RK}\Gamma^I_{SL}G^{JR}+\Gamma^J_{KR,L}G^{IR}-\Gamma^J_{KS}\Gamma^S_{LR}G^{IR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \\
+        &\dps\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M-2\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right.\\
+        &\dps\qquad\qquad-\Gamma^I_{KL,S}(\Gamma^J_{MR}G^{RS}+\Gamma^S_{MR}G^{JR})
+        -(2\Gamma^I_{KS,M}\Gamma^S_{LR}-\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \\
         &\dps\qquad\qquad
-        +(\Gamma^I_{RS,K}\Gamma^S_{LM}+\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}\Gamma^R_{MN}G^{JN}-2\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS} \\
+        +(\Gamma^I_{RS,K}\Gamma^S_{LM}-\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}(\Gamma^J_{MN}G^{RN}+\Gamma^R_{MN}G^{JN}) \\
         &\dps\qquad\qquad
-        \left.+5\Gamma^I_{KL,S}\Gamma^J_{RM}G^{RS}
-        +2\Gamma^I_{KS}\Gamma^S_{LR}(\Gamma^R_{MN}G^{JN}-4\Gamma^J_{MN}G^{RN})\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \\
+        \left.+\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS}\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \\
         &\dps\qquad
         \left.+\frac{1}{6}\left(V_{I;JK}+3\Gamma^S_{IJ}V_{K;S}+(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{KR})V_S\right)\dphi^I\dphi^J\dphi^K\right],
     } \\
@@ -952,15 +951,14 @@ Therefore one obtains the action order by order as
 	=&\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3-\frac{\Mpl^2}{2a\calN_\IR^2}\alpha[(\nabla^2\psi)^2-\psi_{ij}\psi_{ij}] \right. \nonumber \\
 	&\qquad-a^3\calN_\IR\left\{\frac{1}{a^2}\Gamma^I_{JK}\dphi^K\partial_i\dphi_I\partial_i\dphi^J-\frac{1}{a^6}\Gamma^I_{JK}\Dpi_I\Dpi^J\dphi^K \right. \nonumber \\
     &\qquad\qquad
-    -\frac{1}{a^6}\left(R_K{}^{IJ}{}_L+\Gamma^I_{KL,R}G^{JR}-\Gamma^I_{LS}\Gamma^S_{KR}G^{JR}+\Gamma^I_{RS}\Gamma^S_{KL}G^{JR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \nonumber \\
-    &\qquad\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M+4\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right. \nonumber \\
-    &\qquad\qquad\qquad+\Gamma^I_{KL,S}(5\Gamma^J_{MR}G^{RS}-\Gamma^S_{MR}G^{JR})
-    -2(\Gamma^I_{KS,M}\Gamma^S_{LR}+\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \nonumber \\
+    -\frac{1}{2a^6}\left(\Gamma^I_{KR,L}G^{JR}+\Gamma^S_{RK}\Gamma^I_{SL}G^{JR}+\Gamma^J_{KR,L}G^{IR}-\Gamma^J_{KS}\Gamma^S_{LR}G^{IR}\right)\varpi_I\Dpi_J\dphi^K\dphi^L \nonumber \\
+    &\qquad\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M-2\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right. \nonumber \\
+    &\qquad\qquad\qquad-\Gamma^I_{KL,S}(\Gamma^J_{MR}G^{RS}+\Gamma^S_{MR}G^{JR})
+    -(2\Gamma^I_{KS,M}\Gamma^S_{LR}-\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \nonumber \\
     &\qquad\qquad\qquad
-    +(\Gamma^I_{RS,K}\Gamma^S_{LM}+\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}\Gamma^R_{MN}G^{JN}-2\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS} \nonumber \\
+    +(\Gamma^I_{RS,K}\Gamma^S_{LM}-\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}(\Gamma^J_{MN}G^{RN}+\Gamma^R_{MN}G^{JN}) \nonumber \\
     &\qquad\qquad\qquad
-    \left.+5\Gamma^I_{KL,S}\Gamma^J_{RM}G^{RS}
-    +2\Gamma^I_{KS}\Gamma^S_{LR}(\Gamma^R_{MN}G^{JN}-4\Gamma^J_{MN}G^{RN})\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \nonumber \\
+    \left.+\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS}\right)\varpi_I\varpi_J\dphi^K\dphi^L\dphi^M \nonumber \\
     &\qquad\qquad
     \left.+\frac{1}{6}\left(V_{I;JK}+3\Gamma^S_{IJ}V_{K;S}+(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{KR})V_S\right)\dphi^I\dphi^J\dphi^K\right\}
 	\nonumber \\
@@ -1039,15 +1037,14 @@ Keeping them in mind, one can summarize the cubic action $S^{(2),[3]}$ and $S^{(
     S^{(3),[3]}=&\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}{\alpha^{[1]}}^3-\frac{\Mpl^2}{2a\calN_\IR^2}\alpha^{[1]}[(\nabla^2\psi^{[1]})^2-\psi^{[1]}_{ij}\psi^{[1]}_{ij}] \right. \nonumber \\
 	&-a^3\calN_\IR\left\{-\frac{1}{2}\Gamma^I_{JK}Q^JQ^K\frac{\nabla^2}{a^2}Q_I-\frac{1}{a^6}\Gamma^I_{JK}\tilde{P}_I\tilde{P}^JQ^K \right. \nonumber \\
     &\qquad
-    -\frac{1}{a^6}\left(R_K{}^{IJ}{}_L+\Gamma^I_{KL,R}G^{JR}-\Gamma^I_{LS}\Gamma^S_{KR}G^{JR}+\Gamma^I_{RS}\Gamma^S_{KL}G^{JR}\right)\varpi_I\tilde{P}_JQ^KQ^L \nonumber \\
-    &\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M+4\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right. \nonumber \\
-    &\qquad\qquad+\Gamma^I_{KL,S}(5\Gamma^J_{MR}G^{RS}-\Gamma^S_{MR}G^{JR})
-    -2(\Gamma^I_{KS,M}\Gamma^S_{LR}+\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \nonumber \\
+    -\frac{1}{2a^6}\left(\Gamma^I_{KR,L}G^{JR}+\Gamma^S_{RK}\Gamma^I_{SL}G^{JR}+\Gamma^J_{KR,L}G^{IR}-\Gamma^J_{KS}\Gamma^S_{LR}G^{IR}\right)\varpi_I\tilde{P}_JQ^KQ^L \nonumber \\
+    &\qquad-\frac{1}{6a^6}\left(R_K{}^{IJ}{}_{L;M}+2\Gamma^S_{KL}R_S{}^{IJ}{}_M-2\Gamma^I_{SK}R_L{}^{JS}{}_M+\Gamma^I_{KL,MS}G^{JS} \right. \nonumber \\
+    &\qquad\qquad-\Gamma^I_{KL,S}(\Gamma^J_{MR}G^{RS}+\Gamma^S_{MR}G^{JR})
+    -(2\Gamma^I_{KS,M}\Gamma^S_{LR}-\Gamma^I_{KS}\Gamma^S_{LR,M})G^{JR} \nonumber \\
     &\qquad\qquad
-    +(\Gamma^I_{RS,K}\Gamma^S_{LM}+\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}\Gamma^R_{MN}G^{JN}-2\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS} \nonumber \\
+    +(\Gamma^I_{RS,K}\Gamma^S_{LM}-\Gamma^I_{RS}\Gamma^S_{LM,K})G^{JR}-\Gamma^I_{RS}\Gamma^S_{KL}(\Gamma^J_{MN}G^{RN}+\Gamma^R_{MN}G^{JN}) \nonumber \\
     &\qquad\qquad
-    \left.+5\Gamma^I_{KL,S}\Gamma^J_{RM}G^{RS}
-    +2\Gamma^I_{KS}\Gamma^S_{LR}(\Gamma^R_{MN}G^{JN}-4\Gamma^J_{MN}G^{RN})\right)\varpi_I\varpi_JQ^KQ^LQ^M \nonumber \\
+    \left.+\Gamma^I_{KS,L}\Gamma^J_{MR}G^{RS}\right)\varpi_I\varpi_JQ^KQ^LQ^M \nonumber \\
     &\qquad
     \left.+\frac{1}{6}\left(V_{I;JK}+3\Gamma^S_{IJ}V_{K;S}+(\Gamma^S_{IJ,K}+\Gamma^R_{IJ}\Gamma^S_{KR})V_S\right)Q^IQ^JQ^K\right\}
 	\nonumber \\
@@ -1062,7 +1059,7 @@ The full cubic action as their summation reads
 \bae{
     S^{[3]}=&\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}{\alpha^{[1]}}^3+\frac{2a^3\Mpl^2\calH}{\calN_\IR^3}{\alpha^{[1]}}^2\frac{\nabla^2}{a^2}\psi^{[1]}+\frac{\Mpl^2}{2a\calN_\IR^2}\alpha^{[1]}((\nabla^2\psi^{[1]})^2-\psi^{[1]}_{ij}\psi^{[1]}_{ij}) \right. \nonumber \\
     &-a^3\alpha^{[1]}\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I+\frac{1}{2}V_{I;J}Q^IQ^J\right)-\frac{\psi^{[1]}_i}{a^2}\tilde{P}_I\partial_iQ^I \nonumber \\
-    &\left.\right].
+    &\left.-a^3\calN_\IR\left(\right)\right].
 }
 
 
