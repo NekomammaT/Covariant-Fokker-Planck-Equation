@@ -1070,12 +1070,96 @@ The full cubic action as their summation reads
 \subsection{Transport method}
 
 On general curved manifolds, the full fields $\phi^I$ and their IR modes $\varphi^I$ indicating different points span different (co)tangent spaces. That is why a mere difference between $\pi_I$ and $\varpi_I$, covectors at different points $\phi^I$ and $\varphi^I$, is not a covariant quantity.
-However vectors can be mapped to a different point by the parallel transport. Each term in the action is a scalar at $\phi^I$, which is conserved along this transport. Therefore the action can be written in terms of vectors at the IR point $\varphi^I$ and then its covariance will be much clearer.
-See Fig.~\ref{fig: OPdef} for our vector notations.
-
+However vectors can be mapped to a different point by the parallel transport. Each term in the action is a scalar at $\phi^I$, which is conserved under this transport. Therefore the action can be rewritten in terms of vectors at the IR point $\varphi^I$ and then its covariance will be much clearer.
+We here discuss this approach.
+See Fig.~\ref{fig: QPdef} for our vector notations.
 
 
 \bfe{width=\hsize}{fig/QPdef.pdf}{Schematic image of the definition of vectors. Each vector is mapped to the same color one by the parallel transport.}{fig: QPdef}
+
+
+The IR mode $\varphi^I$ is in general different from the original field $\phi^I$ and thus points a different position on the inflaton's manifold. They can be connected by one geodesic line with an affine parameter $\lambda$. Let $\lambda=0$ correspond with $\varphi^I$ and $\lambda=1$ correspond with $\phi^I$. The geodesic line is along with a parallel transported vector $\dd\phi^I/\dd\lambda$. That is, it satisfies
+\bae{\label{eq: lambda line}
+    D_\lambda\dif{\phi^I}{\lambda}=\dif{^2\phi^I}{\lambda^2}+\Gamma^I_{JK}\dif{\phi^J}{\lambda}\dif{\phi^K}{\lambda}=0, \quad \Leftrightarrow \quad \dif{^2\phi^I}{\lambda^2}=-\Gamma^I_{JK}\dif{\phi^J}{\lambda}\dif{\phi^K}{\lambda}.
+}
+Then we can define the covariant UV mode of $\phi^I$ by
+\bae{
+    Q^I:=\left.\dif{\phi^I}{\lambda}\right|_{\lambda=0},  
+}
+which specifies the ``difference" between the original field $\phi^I$ and its IR mode $\varphi^I$.
+
+The conjugate momentum $\pi_I$ is a covector at $\phi^I$, while its IR mode $\varpi_I$ should be defined at $\varphi_I$. Thus they cannot be compared directly. Instead of the original momentum $\pi_I$, one can consider a covector $\pi_I^\parallel$ at $\varphi^I$, which is parallel transported along the $\lambda$-line.
+Then $\pi_I^\parallel$ can be compared with $\varpi_I$ and their difference is also a covariant vector. It can be a good representative of the covariant UV mode of $\pi_I$:\footnote{In this subsection, we use non-tilded $P_I$ for the covariant vector contrary to other parts of this notes.}
+\bae{
+    P_I:=\pi_I^\parallel-\varpi_I.
+}
+The parallel transport conserves a scalar product. Therefore, e.g., the kinetic term in the Hamiltonian can be easily expressed as
+\bae{
+    \pi_I\pi^I|_{\lambda=1}=\pi_I^\parallel\pi^I_\parallel|_{\lambda=0}=(\varpi_I+P_I)(\varpi^I+P^I).
+}
+It is exact without any perturbative expansion.
+
+The scalar potential $V$ can be also clearly expressed. Its expansion should be rewritten in a covariant way as
+\bae{
+    V|_{\lambda=1}&=\left(V+\dif{V}{\lambda}+\frac{1}{2}\dif{^2V}{\lambda^2}+\frac{1}{6}\dif{^3V}{\lambda^3}+\cdots\right)_{\lambda=0} \nonumber \\
+    &=\left[V+V_I\dif{\phi^I}{\lambda}+\frac{1}{2}\dif{}{\lambda}\left(V_I\dif{\phi^I}{\lambda}\right)+\frac{1}{6}\dif{}{\lambda}\left(\dif{}{\lambda}\left(V_I\dif{\phi^I}{\lambda}\right)\right)+\cdots\right]_{\lambda=0} \nonumber \\
+    &=V+V_IQ^I+\frac{1}{2}V_{I;J}Q^IQ^J+\frac{1}{6}V_{I;JK}Q^IQ^JQ^K+\cdots.
+}
+The ADM variables $\calN$ and $\beta^i$ are also scalars but independent of $\phi^I$ and $\pi_I$ before they are integrated out. Thus one defines their UV modes by the direct difference as
+\bae{
+    \alpha:=\calN-\calN_\IR, \qquad a^{-2}\partial_i\psi:=\beta^i-0.
+}
+
+Non-trivial terms come from $\phi^I$'s derivatives. The $\lambda$-line geodesics~(\ref{eq: lambda line}) defines the $\phi^I$'s expansion as
+\bae{
+    \phi^I|_{\lambda=1}&=\left(\phi^I+\dif{\phi^I}{\lambda}+\frac{1}{2}\dif{^2\phi^I}{\lambda^2}+\frac{1}{6}\dif{^3\phi^I}{\lambda^3}+\cdots\right)_{\lambda=0} \nonumber \\
+    &=\varphi^I+Q^I-\frac{1}{2}\Gamma^I_{JK}Q^JQ^K+\frac{1}{6}B^I_{JKL}Q^JQ^KQ^L+\cdots.
+}
+Here $B^I_{JKL}=-\Gamma^I_{JK,L}+\Gamma^I_{SK}\Gamma^S_{JL}+\Gamma^I_{JS}\Gamma^S_{KL}$. Therefore
+\bae{
+    \dot{\phi}^I|_{\lambda=1}=&\,\dot{\varphi}^I+\dot{Q}^I-\frac{1}{2}\Gamma^I_{JK,L}\dot{\varphi}^IQ^JQ^K-\Gamma^I_{JK}Q^J\dot{Q}^K \nonumber \\
+    &+\frac{1}{6}B^I_{JKL,M}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}B^I_{JKL}(\dot{Q}^IQ^JQ^K+Q^J\dot{Q}^KQ^L+Q^JQ^K\dot{Q}^L)+\cdots.
+}
+Note that it is different from $\dot{\varphi}^I_\parallel$, parallel transported $\dot{\varphi}^I$ from $\lambda=0$ to $\lambda=1$. $\dot{\phi}^I$ does not satisfy the parallel transport equation, $D_\lambda\dot{\phi}^I\neq0$, as can be checked by
+\bae{
+    D_\lambda^2\dot{\phi}^I=D_\lambda^2D_t\phi^I=D_\lambda D_tD_\lambda\phi^I=[D_\lambda,D_t]D_\lambda\phi^I+D_tD_\lambda^2\phi^I=R^I{}_{\lambda\lambda t}.
+}
+Similarly $\dot{\phi}^I_\parallel$, parallel transported $\dot{\phi}^I$ from $\lambda=1$ back to $\lambda=0$ is also different from $\dot{\varphi}^I$. The transport of $\dot{\phi}^I_\parallel$ satisfies $D_\lambda\dot{\phi}^I_\parallel=0$ and thus
+\bae{
+    \dif{\dot{\phi}^I_\parallel}{\lambda}=-\Gamma^I_{JK}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}, \qquad \dif{^2\dot{\phi}^I_\parallel}{\lambda^2}=B^I_{JKL}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}, \qquad \dif{^3\dot{\phi}^I_\parallel}{\lambda^3}=C^I_{JKLM}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}\dif{\phi^M}{\lambda},
+}
+where $C^I_{JKLM}=B^I_{JKL,M}-B^I_{SKL}\Gamma^S_{JM}-B^I_{JSL}\Gamma^S_{KM}-B^I_{JKS}\Gamma^S_{LM}$. Therefore $\dot{\phi}^I$'s inverse parallel transport is given by
+\bae{
+    \dot{\phi}^I_\parallel|_{\lambda=0}=&\left(\dot{\phi}^I_\parallel-\dif{\dot{\phi}^I_\parallel}{\lambda}+\frac{1}{2}\dif{^2\dot{\phi}^I_\parallel}{\lambda^2}-\frac{1}{6}\dif{^3\dot{\phi}^I_\parallel}{\lambda^3}+\cdots\right)_{\lambda=1} \nonumber \\
+    =&\,\dot{\varphi}^I+D_tQ^I+\frac{1}{2}R^I{}_{JKL}\dot{\varphi}^LQ^JQ^K \nonumber \\
+    &+\frac{1}{6}R^I{}_{JKM;L}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}R^I{}_{JKL}Q^JQ^KD_tQ^L+\cdots.
+}
+Here we used expansions of $\dd\phi^I/\dd\lambda$, $\Gamma^I_{JK}$, and $B^I_{JKL}$:
+\bae{
+    \left.\dif{\phi^I}{\lambda}\right|_{\lambda=1}&=Q^I-\Gamma^I_{JK}Q^JQ^K+\frac{1}{2}B^I_{JKL}Q^JQ^KQ^L+\cdots, \nonumber \\
+    \Gamma^I_{JK}|_{\lambda=1}&=\Gamma^I_{JK}+\Gamma^I_{JK,L}Q^L+\frac{1}{2}\dif{}{\lambda}\left(\Gamma^I_{JK,L}\dif{\phi^L}{\lambda}\right)_{\lambda=0}+\cdots \nonumber \\
+    &=\Gamma^I_{JK}+\Gamma^I_{JK,L}Q^L+\frac{1}{2}\Gamma^I_{JK,LM}Q^LQ^M-\frac{1}{2}\Gamma^I_{JK,L}\Gamma^L_{MN}Q^MQ^N+\cdots, \nonumber \\
+    B^I_{JKL}|_{\lambda=1}&=B^I_{JKL}+B^I_{JKL,M}Q^M+\cdots.
+}
+The gradient is similarly obtained as
+\bae{
+    (\partial_i\phi^I)_\parallel|_{\lambda=0}=\partial_iQ^I+\frac{1}{6}R^I{}_{JKL}Q^JQ^K\partial_iQ^L+\cdots.
+}
+Note that $\partial_i$ is already covariant because we neglect the spatial dependence of IR modes, $\partial_i\varphi^I=0$.
+
+Finally, up to the cubic order, the action can be rewritten as
+\bae{
+    S=&\int\dd^4x\left[(\varpi_I+P_I)\left(\dot{\varphi}^I+D_tQ^I+\frac{1}{2}R^I{}_{JKL}\dot{\varphi}^LQ^JQ^K \right.\right. \nonumber \\
+    &\qquad\qquad\qquad\left.+\frac{1}{6}R^I{}_{JKM;L}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}R^I{}_{JKL}Q^JQ^KD_tQ^L\right) \nonumber \\
+    &\qquad\qquad-a^3(\calN_\IR+\alpha)\left(\frac{1}{2a^6}(\varpi_I+P_I)(\varpi^I+P^I)+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I \right. \nonumber \\
+    &\qquad\qquad\qquad\left.+V+V_IQ^I+\frac{1}{2}V_{I;J}Q^IQ^J+\frac{1}{6}V_{I;JK}Q^IQ^JQ^K\right) \nonumber \\
+    &\qquad\qquad\-\frac{1}{a^2}\psi_i(\varpi_I+P_I)\partial_iQ^I+\frac{\Mpl^2}{2a(\calN_\IR+\alpha)}\left((\psi_{ii})^2-\psi_{ij}\psi_{ij}-6a^4\calH^2\right) \nonumber \\
+    &\qquad\qquad\left.-\frac{\Mpl^2}{(\calN_\IR+\alpha)^2}\psi_i\left(\alpha_i(\psi_{jj}-2a^2\calH)-\alpha_j\psi_{ij}\right)\right]
+}
+
+
+
+
 
 
 
