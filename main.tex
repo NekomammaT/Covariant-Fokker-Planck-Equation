@@ -1154,10 +1154,22 @@ Finally, up to the cubic order, the action can be rewritten as
     &\qquad\qquad-a^3(\calN_\IR+\alpha)\left(\frac{1}{2a^6}(\varpi_I+P_I)(\varpi^I+P^I)+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I \right. \nonumber \\
     &\qquad\qquad\qquad\left.+V+V_IQ^I+\frac{1}{2}V_{I;J}Q^IQ^J+\frac{1}{6}V_{I;JK}Q^IQ^JQ^K\right) \nonumber \\
     &\qquad\qquad\-\frac{1}{a^2}\psi_i(\varpi_I+P_I)\partial_iQ^I+\frac{\Mpl^2}{2a(\calN_\IR+\alpha)}\left((\psi_{ii})^2-\psi_{ij}\psi_{ij}-6a^4\calH^2\right) \nonumber \\
-    &\qquad\qquad\left.-\frac{\Mpl^2}{(\calN_\IR+\alpha)^2}\psi_i\left(\alpha_i(\psi_{jj}-2a^2\calH)-\alpha_j\psi_{ij}\right)\right]
+    &\qquad\qquad\left.-\frac{a\Mpl^2}{(\calN_\IR+\alpha)^2}\psi_i\left(\alpha_i(\psi_{jj}-2a^2\calH)-\alpha_j\psi_{ij}\right)\right]
 }
-
-
+\bae{
+	\tilde{P}_I:=P_I+\frac{1}{6}R_{IJK}{}^L\varpi_LQ^JQ^K,
+}
+\bae{
+	S^{[0]}&=\int\dd^4x\left[\varpi_I\dot{\varphi}^I-a^3\calN_\IR\left(\frac{1}{2a^6}\varpi_I\varpi^I+V+\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	S^{[1]}&=\int\dd^4x\left[\tilde{P}_I\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)-Q^I\left(D_t\varpi_I+a^3\calN_\IR V_I\right)
+	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	S^{[2]}&=\int\dd^4x\left[\tilde{P}_ID_tQ^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2
+	-a^3\left(\frac{1}{a^6}\varpi_I\tilde{P}^I+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right) \right. \nonumber \\
+	&\qquad-a^3\calN_\IR\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J
+	-\frac{1}{2}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right) \nonumber \\
+	&\qquad\left.+\frac{1}{3}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\right], \\
+	S^{[3]}&=\int\dd^4x\left[\right]
+}
 
 
 
