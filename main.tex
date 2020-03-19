@@ -4,7 +4,7 @@
 , preprint
 %, twocolumn
 , nofootinbib 
-, notitlepage
+%, notitlepage
 %, superscriptaddress
 , longbibliography
 ]{revtex4-1}
@@ -52,18 +52,18 @@
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\diag}{\mathrm{diag}}
 \newcommand{\sgn}{\mathrm{sgn}}
-\newcommand{\Mpl}{M_\text{Pl}}
+\newcommand{\Mpl}{M_\mathrm{Pl}}
 \newcommand{\ns}{n_{{}_\mathrm{S}}}
 \newcommand{\cs}{c_{{}_\mathrm{S}}}
-\newcommand{\IR}{\text{IR}}
-\newcommand{\UV}{\text{UV}}
+\newcommand{\IR}{\mathrm{IR}}
+\newcommand{\UV}{\mathrm{UV}}
 \renewcommand{\Re}{\mathrm{Re}}
 \renewcommand{\Im}{\mathrm{Im}}
 \newcommand{\dk}{\frac{\dd^3k}{(2\pi)^3}}
 \newcommand{\bbalpha}{{\alpha\!\!\!\alpha}}
 \newcommand{\dps}{\displaystyle}
-\newcommand{\SIA}{S_\text{IA}}
-\newcommand{\eff}{\text{eff}}
+\newcommand{\SIA}{S_\mathrm{IA}}
+\newcommand{\eff}{\mathrm{eff}}
 \newcommand{\kdx}{\mathbf{k}\cdot\mathbf{x}}
 \newcommand{\Det}{\mathrm{Det}}
 \newcommand{\Tr}{\mathrm{Tr}}
@@ -74,7 +74,7 @@
 \newcommand{\calg}{\mathcal{g}}
 \newcommand{\calH}{\mathcal{H}}
 \newcommand{\scrH}{\mathscr{H}}
-\newcommand{\uI}{\text{I}}
+\newcommand{\uI}{\mathrm{I}}
 \newcommand{\calJ}{\mathcal{J}}
 \newcommand{\scrJ}{\mathscr{J}}
 \newcommand{\calL}{\mathcal{L}}
@@ -84,7 +84,7 @@
 \newcommand{\scrO}{\mathscr{O}}
 \newcommand{\calP}{\mathcal{P}}
 \newcommand{\calR}{\mathcal{R}}
-\newcommand{\uR}{\text{R}}
+\newcommand{\uR}{\mathrm{R}}
 
 \newcommand{\dphi}{\delta\phi}
 \newcommand{\dpi}{\delta\pi}
@@ -138,7 +138,7 @@ We are trying to summarize all our knowledge, respecting this article.
 \end{abstract}
 
 \maketitle
-%\tableofcontents
+\tableofcontents
 
 
 \section{Field-space formulation}
@@ -166,8 +166,6 @@ with use of the covariant spacetime derivatives,
     D_N\pi_I=\partial_N\pi_I-\Gamma^K_{IJ}\pi_K\partial_N\phi^J, \qquad 
     D_i\calO_I=\partial_i\calO_I-\Gamma^K_{IJ}\calO_K\partial_i\phi^J.
 } 
-
-\newpage
 
 For a function only of $\phi$, these derivatives can be clearly rewritten by the covariant field derivative $\nabla_I$ as
 \bae{
@@ -220,7 +218,7 @@ there is a useful choice of the vielbein satisfying the parallel transported con
 However in the stochastic cases, one must consider all field space points in principle and therefore this spin connection should be taken into account in general.
 
 
-\subsection{It\^o-Stratonovich stuff and covariant Fokker-Planck}
+\subsection{It\^o-Stratonovich stuff and covariant Fokker-Planck}\label{sec: Ito-Strato}
 
 In the Langevin eq.~(\ref{eq: Kitamoto Langevin}), we adopted the Stratonovich noise integral, reflecting the fact that the Stratonovich works for metric type interactions.
 On the other hand, one has to keep in mind that the potential type interaction should be treated in the It\^o's way.
@@ -387,6 +385,93 @@ Combining them and the tensorial transformation of the Riemann tensor $R^S{}_{JI
 \bae{
 	\pdif{\tilde{\varphi}^A}{\varphi^I}\calD\varpi_A=\calD\varpi_I.
 }
+
+
+\subsection{Stratonovich Langiven with frame fixing}
+
+Without quadratic IR-UV interactions, one obtains the following Langevin equation.
+\bae{
+    \dot{\varphi}^I=\frac{\calN_\IR}{a^3}\varpi^I+\xi^{QI}, \qquad \dot{\varpi}_I=-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J+\xi^P_I.
+}
+Let us interpret this in the Stratonovich way, that is,
+\bae{
+    \dd\varphi^I=\frac{\calN_\IR}{a^3}\varpi^I\dd t+g^{QI}_a\circ\dd W_a, \qquad \dd\varpi_I=\left(-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J\right)\dd t+g^P_{Ia}\circ\dd W_a.
+}
+They are equivalent to the following It\^o's Langevin equations.
+\bae{
+    \bce{
+        \dps
+        \dd\varphi^I & 
+        \dps
+        =\left(\frac{\calN_\IR}{a^3}\varpi^I+\frac{1}{2}g^{QJ}_a\partial_{\varphi^J}g^{QI}_a+\frac{1}{2}g^P_{Ja}\partial_{\varpi_J}g^{QI}_a\right)\dd t+g^{QI}_a\dd W_a, \\
+        \dps
+        \dd\varpi_I &
+        \dps
+        =\left(-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J+\frac{1}{2}g^{QJ}_a\partial_{\varphi^J}g^P_{Ia}+\frac{1}{2}g^P_{Ja}\partial_{\varpi_J}g^P_{Ia}\right)\dd t+g^P_{Ia}\dd W_a \\
+        & \dps
+        =\left[-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J+\frac{1}{2}g^{QJ}_a\partial_{\varphi^J}\left(g^{\tilde{P}}_{Ia}+\Gamma_{IK}^L\varpi_Lg^{QK}_a\right) \right. \\
+        & \dps \qquad
+        \left.+\frac{1}{2}g^P_{Ja}\partial_{\varpi_J}\left(g^{\tilde{P}}_{Ia}+\Gamma^L_{IK}\varpi_Lg^{QK}_a\right)\right]\dd t+g^P_{Ia}\dd W_a \\
+        & \dps 
+        =\left[-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J+\frac{1}{2}g^{QJ}_a\left(\partial_{\varphi^J}g^{\tilde{P}}_{Ia}+\Gamma^L_{IK}\varpi_L\partial_{\varphi^J}g^{QK}_a\right)+\frac{1}{2}\Gamma^L_{IK,J}\varpi_LA^{QQJK} \right. \\
+        & \dps \qquad
+        \left.+\frac{1}{2}g^P_{Ja}\left(\partial_{\varpi_J}g^{\tilde{P}}_{Ia}+\Gamma^L_{IK}\varpi_L\partial_{\varpi_J}g^{QK}_a\right)+\frac{1}{2}\Gamma^J_{IK}A^{QPK}{}_J\right]\dd t+g^P_{Ia}\dd W_a.
+    }
+}
+Here $g^{\tilde{P}}_{Ia}=g^P_{Ia}-\Gamma_{IJ}^K\varpi_Kg^{QJ}_a$.
+
+Then let us here make two key assumptions.
+First, the locally projected noise amplitude is determined not by the current field values but by the slightly past values just like the It\^o's interpretation.
+We describe it in more details. The noise amplitudes $g^{QI}_a$ and $g^{\tilde{P}}_{Ia}$ can be decomposed into the vielbein $e^I_a$ and the (square-root of) the projected amplitude $g^Q_{ab}$ and $g^{\tilde{P}}_{ab}$ as
+\bae{
+    g^{QI}_a=g^Q_{ab}e^I_b, \qquad g^{\tilde{P}}_{Ia}=g^{\tilde{P}}_{ab}e_{Ib}.
+}
+Similarly to the procedure in Sec.~\ref{sec: Ito-Strato},
+we then assume that the projected amplitude is actually the function of $\bar{\varphi}$ and $\bar{\varpi}$, dummy variables representing the slightly past values of $\varphi$ and $\varpi$, and thus the partial derivatives in $\varphi$ and $\varpi$ pass through $g^Q_{ab}$ and $g^{\tilde{P}}_{ab}$ as
+\bae{
+    \bce{
+        \dps
+        \partial_{\varphi^J}g^{QI}_a=g^Q_{ab}(\bar{\varphi},\bar{\varpi})\partial_{\varphi^J}e^I_b(\varphi), \qquad
+        \partial_{\varpi_J}g^{QI}_a=0, \\
+        \partial_{\varphi^J}g^{\tilde{P}}_{Ia}=g^{\tilde{P}}_{ab}(\bar{\varphi},\bar{\varpi})\partial_{\varphi^J}e_{Ib}(\varphi), \qquad \partial_{\varpi_J}g^{\tilde{P}}_{Ia}=0.
+    }
+}
+Note that the vielbein $e^I_a$ is a function only of the field value $\varphi$.
+After that, one can take the limit $\bar{\varphi}\to\varphi$ and $\bar{\varpi}\to\varpi$ in the It\^o's Langevin equations.
+
+The second assumption is that we fix the vielbein as it is parallelly transported along the realized stochastic process to kill the frame-dependence of the Stratonovich SDE.
+In other words, once one makes a choice of the frame, that frame is parallelly transported along the solution of SDE.
+Namely the vielbein satisfies
+\bae{
+    \bce{
+        \dps
+        \nabla_Je^I_a=\partial_Je^I_a+\Gamma^I_{JK}e^K_a=0, \quad \Leftrightarrow \quad \partial_Je^I_a=-\Gamma^I_{JK}e^K_a, \\
+        \dps
+        \nabla_Je_{Ia}=\partial_Je_{Ia}-\Gamma_{IJ}^Ke_{Ka}=0, \quad \Leftrightarrow \quad \partial_Je_{Ia}=\Gamma_{IJ}^Ke_{Ka},
+    }
+}
+along the trajectory.
+
+Combining them, one obtains the following It\^o's Langevin
+\bae{
+    \bce{
+        \dps
+        \dd\varphi^I & 
+        \dps
+        =\left(\frac{\calN_\IR}{a^3}\varpi^I-\frac{1}{2}\Gamma^I_{JK}A^{QQJK}\right)\dd t+g^{QI}_a\dd W_a,\\
+        \dps
+        \dd\varpi_I & 
+        \dps
+        =\left[-a^3\calN_\IR V_I+\frac{\calN_\IR}{a^3}\Gamma^K_{IJ}\varpi_K\varpi^J+\frac{1}{2}\left(\Gamma^S_{IJ,K}-\Gamma^S_{IR}\Gamma^R_{JK}+\Gamma^R_{IJ}\Gamma^S_{RK}\right)A^{QQJK}\right. \\
+        &\dps\qquad
+        \left.+\Gamma_{IJ}^KA^{Q\tilde{P}J}{}_K\right]\dd t+\left(g^{\tilde{P}}_{Ia}+\Gamma_{IJ}^K\varpi_Kg^{QJ}_a\right)\dd W_a.
+    }
+}
+They can be rewritten in a covariant way with use of the It\^o's covariant derivative~(\ref{eq: Ito cov derivative}) as
+\bae{
+    \calD\varphi^I=\frac{\calN_\IR}{a^3}\varpi^I\dd t+g^{QI}_a\dd W_a, \qquad \calD\varpi_I=-a^3\calN_\IR V_I\dd t+g^{\tilde{P}}_{Ia}\dd W_a.
+}
+
 
 
 
@@ -810,7 +895,7 @@ Note that $\pi^{ij}\dot{\gamma}_{ij}$ and $\calN C^G$ can be simply summarized a
 \subsection{Direct IR-UV decomposition}
 
 We then decompose the physical variables into the IR and UV modes:
-\bae{
+\bae{\label{eq: direct decomposition}
     \phi^I=\varphi^I+\dphi^I, \qquad \pi_I=\varpi_I+\dpi_I, \qquad \calN=\calN_\IR+\alpha, \qquad \beta^i=0+a^{-2}\partial_i\psi.
 }
 The order by order expansion of each quantity in UV modes can be summarized as
@@ -939,7 +1024,7 @@ Therefore one obtains the action order by order as
 	S^{(1)} =& \int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(1)}+(\pi_I\dot{\phi}^I)^{(1)}-\calN^{(0)}{C^\phi}^{(1)}-\calN^{(1)}{C^\phi}^{(0)} \right. \nonumber \\
 	&\qquad \left.-{\beta^i}^{(0)}({C_i^\phi}^{(1)}+{C_i^G}^{(1)})-{\beta^i}^{(1)}({C_i^\phi}^{(0)}+{C_i^G}^{(0)})\right] \nonumber \\
 	=&\int\dd^4x\left[\Dpi_I\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)-\dphi^I\left(D_t\varpi_I+a^3\calN_\IR V_I\right)
-	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \label{eq: S^(1) DD} \\
 	S^{(2)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(2)}+(\pi_I\dot{\phi}^I)^{(2)}-\calN^{(0)}{C^\phi}^{(2)}-\calN^{(1)}{C^\phi}^{(1)} \right. \nonumber \\
 	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})-{\beta^i}^{(1)}({C_i^\phi}^{(1)}+{C_i^G}^{(1)})\right] \nonumber \\
 	=&\int\dd^4x\left[\Dpi_ID_t\dphi^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2-a^3\alpha\left(\frac{1}{a^6}\varpi^I\Dpi_I+V_I\dphi^I
@@ -948,7 +1033,7 @@ Therefore one obtains the action order by order as
 	-\frac{1}{2a^6}R_I{}^{JK}{}_L\varpi_J\varpi_K\dphi^I\dphi^L\right) \nonumber \\
 	&\qquad -\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left(\frac{1}{2}(\Gamma^K_{JL,I}+\Gamma^K_{IS}\Gamma^S_{JL})\varpi_K\dphi^J\dphi^L
 	+\Gamma_{IJ}^K\dphi^J\Dpi_K\right) \nonumber \\
-	&\qquad \left.-\frac{1}{2}\left(D_t\varpi_I+a^3\calN_\IR V_I\right)\Gamma^I_{JK}\dphi^J\dphi^K\right], \\
+	&\qquad \left.-\frac{1}{2}\left(D_t\varpi_I+a^3\calN_\IR V_I\right)\Gamma^I_{JK}\dphi^J\dphi^K\right], \label{eq: S^(2) DD} \\
 	S^{(3)}=&\int\dd^4x\left[(\pi^{ij}\dot{\gamma}_{ij}-\calN C^G)^{(3)}+(\pi_I\dot{\phi}^I)^{(3)}-\calN^{(0)}{C^\phi}^{(3)}-\calN^{(1)}{C^\phi}^{(2)} \right. \nonumber \\
 	&\qquad \left. -{\beta^i}^{(0)}({C_i^\phi}^{(3)}+{C_i^G}^{(3)})-{\beta^i}^{(1)}({C_i^\phi}^{(2)}+{C_i^G}^{(2)})\right] \nonumber \\
 	=&\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3-\frac{\Mpl^2}{2a\calN_\IR^2}\alpha[(\nabla^2\psi)^2-\psi_{ij}\psi_{ij}] \right. \nonumber \\
@@ -979,7 +1064,7 @@ To be compared with the standard perturbation theory, we hereafter impose the cl
 }
 Note that $S^{(3)}$ is not covariant. This is because $\dphi^I$ and $\Dpi_I$ are not covariant beyond the linear order. That is, the true cubic action has contributions from $S^{(2)}$ with quadratic expansions of $\dphi^I$ and $\Dpi_I$.
 We then express the expansion in the covariant perturbations $Q^I$ and $\tilde{P}_I$ by square parentheses $[1]$, $[2]$, $[3]$, compared to the round parentheses $(1)$, $(2)$, $(3)$ expressing the expansion in $\dphi^I$ and $\Dpi_I$. For example,
-\bae{
+\bae{\label{eq: quadratic expansion}
     \bce{
         \dps
         {\dphi^I}^{[1]}=Q^I, \\
@@ -1089,10 +1174,11 @@ Then we can define the covariant UV mode of $\phi^I$ by
 which specifies the ``difference" between the original field $\phi^I$ and its IR mode $\varphi^I$.
 
 The conjugate momentum $\pi_I$ is a covector at $\phi^I$, while its IR mode $\varpi_I$ should be defined at $\varphi_I$. Thus they cannot be compared directly. Instead of the original momentum $\pi_I$, one can consider a covector $\pi_I^\parallel$ at $\varphi^I$, which is parallel transported along the $\lambda$-line.
-Then $\pi_I^\parallel$ can be compared with $\varpi_I$ and their difference is also a covariant vector. It can be a good representative of the covariant UV mode of $\pi_I$:\footnote{In this subsection, we use non-tilded $P_I$ for the covariant vector contrary to other parts of this notes.}
+Then $\pi_I^\parallel$ can be compared with $\varpi_I$ and their difference is also a covariant vector. It can be a good representative of the covariant UV mode of $\pi_I$:\footnote{In this subsection, we use non-tilded $P_I$ for the covariant vector contrary to other parts of these notes.}
 \bae{
     P_I:=\pi_I^\parallel-\varpi_I.
 }
+\YT{Compare it with the previous $\tilde{P}$ by explicitly writing $\pi^\parallel$.}
 The parallel transport conserves a scalar product. Therefore, e.g., the kinetic term in the Hamiltonian can be easily expressed as
 \bae{
     \pi_I\pi^I|_{\lambda=1}=\pi_I^\parallel\pi^I_\parallel|_{\lambda=0}=(\varpi_I+P_I)(\varpi^I+P^I).
@@ -1129,10 +1215,10 @@ Similarly $\dot{\phi}^I_\parallel$, parallel transported $\dot{\phi}^I$ from $\l
     \dif{\dot{\phi}^I_\parallel}{\lambda}=-\Gamma^I_{JK}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}, \qquad \dif{^2\dot{\phi}^I_\parallel}{\lambda^2}=B^I_{JKL}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}, \qquad \dif{^3\dot{\phi}^I_\parallel}{\lambda^3}=C^I_{JKLM}\dot{\phi}^J_\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}\dif{\phi^M}{\lambda},
 }
 where $C^I_{JKLM}=B^I_{JKL,M}-B^I_{SKL}\Gamma^S_{JM}-B^I_{JSL}\Gamma^S_{KM}-B^I_{JKS}\Gamma^S_{LM}$. Therefore $\dot{\phi}^I$'s inverse parallel transport is given by
-\bae{
+\bae{\label{eq: expansion of dotphi parallel}
     \dot{\phi}^I_\parallel|_{\lambda=0}=&\left(\dot{\phi}^I_\parallel-\dif{\dot{\phi}^I_\parallel}{\lambda}+\frac{1}{2}\dif{^2\dot{\phi}^I_\parallel}{\lambda^2}-\frac{1}{6}\dif{^3\dot{\phi}^I_\parallel}{\lambda^3}+\cdots\right)_{\lambda=1} \nonumber \\
     =&\,\dot{\varphi}^I+D_tQ^I+\frac{1}{2}R^I{}_{JKL}\dot{\varphi}^LQ^JQ^K \nonumber \\
-    &+\frac{1}{6}R^I{}_{JKM;L}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}R^I{}_{JKL}Q^JQ^KD_tQ^L+\cdots.
+    &+\frac{1}{6}R^I{}_{JKM;L}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}R^I{}_{JKL}Q^JQ^KD_tQ^L+\cdots. 
 }
 Here we used expansions of $\dd\phi^I/\dd\lambda$, $\Gamma^I_{JK}$, and $B^I_{JKL}$:
 \bae{
@@ -1140,6 +1226,7 @@ Here we used expansions of $\dd\phi^I/\dd\lambda$, $\Gamma^I_{JK}$, and $B^I_{JK
     \Gamma^I_{JK}|_{\lambda=1}&=\Gamma^I_{JK}+\Gamma^I_{JK,L}Q^L+\frac{1}{2}\dif{}{\lambda}\left(\Gamma^I_{JK,L}\dif{\phi^L}{\lambda}\right)_{\lambda=0}+\cdots \nonumber \\
     &=\Gamma^I_{JK}+\Gamma^I_{JK,L}Q^L+\frac{1}{2}\Gamma^I_{JK,LM}Q^LQ^M-\frac{1}{2}\Gamma^I_{JK,L}\Gamma^L_{MN}Q^MQ^N+\cdots, \nonumber \\
     B^I_{JKL}|_{\lambda=1}&=B^I_{JKL}+B^I_{JKL,M}Q^M+\cdots.
+    \label{eq: expansion at lambda 1}
 }
 The gradient is similarly obtained as
 \bae{
@@ -1153,24 +1240,78 @@ Finally, up to the cubic order, the action can be rewritten as
     &\qquad\qquad\qquad\left.+\frac{1}{6}R^I{}_{JKM;L}\dot{\varphi}^MQ^JQ^KQ^L+\frac{1}{6}R^I{}_{JKL}Q^JQ^KD_tQ^L\right) \nonumber \\
     &\qquad\qquad-a^3(\calN_\IR+\alpha)\left(\frac{1}{2a^6}(\varpi_I+P_I)(\varpi^I+P^I)+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I \right. \nonumber \\
     &\qquad\qquad\qquad\left.+V+V_IQ^I+\frac{1}{2}V_{I;J}Q^IQ^J+\frac{1}{6}V_{I;JK}Q^IQ^JQ^K\right) \nonumber \\
-    &\qquad\qquad\-\frac{1}{a^2}\psi_i(\varpi_I+P_I)\partial_iQ^I+\frac{\Mpl^2}{2a(\calN_\IR+\alpha)}\left((\psi_{ii})^2-\psi_{ij}\psi_{ij}-6a^4\calH^2\right) \nonumber \\
-    &\qquad\qquad\left.-\frac{a\Mpl^2}{(\calN_\IR+\alpha)^2}\psi_i\left(\alpha_i(\psi_{jj}-2a^2\calH)-\alpha_j\psi_{ij}\right)\right]
+    &\qquad\qquad-\frac{1}{a^2}\psi_i(\varpi_I+P_I)\partial_iQ^I+\frac{\Mpl^2}{2a(\calN_\IR+\alpha)}\left((\psi_{ii})^2-\psi_{ij}\psi_{ij}-6a^4\calH^2\right) \nonumber \\
+    &\qquad\qquad\left.-\frac{\Mpl^2}{a(\calN_\IR+\alpha)^2}\psi_i\left(\alpha_i(\psi_{jj}-2a^2\calH)-\alpha_j\psi_{ij}\right)\right].
 }
-\bae{
-	\tilde{P}_I:=P_I+\frac{1}{6}R_{IJK}{}^L\varpi_LQ^JQ^K,
+It seems that the Hamiltonian has interactions including a time derivative $D_tQ^I$. One can avoid them by redefining $P_I$ as\footnote{Again note that $\tilde{P}_I$ is irrelevant to those in other parts of these notes.}
+\bae{\label{eq: trs tildeP}
+	\tilde{P}_I:=P_I+\frac{1}{6}R_{IJK}{}^L\varpi_LQ^JQ^K.
 }
+Recalling that only linear solutions for the ADM variables are relevant up to the cubic order, one thus obtains the action order by order as follows.
 \bae{
 	S^{[0]}&=\int\dd^4x\left[\varpi_I\dot{\varphi}^I-a^3\calN_\IR\left(\frac{1}{2a^6}\varpi_I\varpi^I+V+\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
 	S^{[1]}&=\int\dd^4x\left[\tilde{P}_I\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)-Q^I\left(D_t\varpi_I+a^3\calN_\IR V_I\right)
-	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \label{eq: S^[1] trs} \\
 	S^{[2]}&=\int\dd^4x\left[\tilde{P}_ID_tQ^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2
-	-a^3\left(\frac{1}{a^6}\varpi_I\tilde{P}^I+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right) \right. \nonumber \\
+	-a^3\left(\frac{1}{a^6}\varpi_I\tilde{P}^I+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi \right. \nonumber \\
 	&\qquad-a^3\calN_\IR\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J
 	-\frac{1}{2}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right) \nonumber \\
-	&\qquad\left.+\frac{1}{3}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\right], \\
-	S^{[3]}&=\int\dd^4x\left[\right]
+	&\qquad\left.+\frac{1}{3}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\right], \label{eq: S^[2] trs} \\
+	S^{[3]}&=\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3+\frac{2a^3\Mpl^2\calH}{\calN_\IR^3}\alpha^2\frac{\nabla^2}{a^2}\psi+\frac{\Mpl^2}{2a\calN_\IR^2}\alpha\left((\psi_{ii}^2)-\psi_{ij}\psi_{ij}\right) \right. \nonumber \\
+	&\qquad-a^3\alpha\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I+\frac{1}{2}V_{I;J}Q^IQ^J\right)-\frac{1}{a^2}\psi_i\tilde{P}_I\partial_iQ^I \nonumber \\
+	&\qquad+a^3\calN_\IR\left(\frac{2}{3a^6}R^L{}_{IJ}{}^K\varpi_LQ^IQ^J\tilde{P}_K-\frac{1}{6}V_{I;JK}Q^IQ^JQ^K+\frac{1}{6}R^L{}_{IJ}{}^M{}_{;K}\varpi_L\varpi_MQ^IQ^JQ^K\right) \nonumber \\
+	&\qquad\left.+\frac{1}{6}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left(3R_{IJK}{}^LQ^JQ^K\tilde{P}_L+R_{IJK}{}^M{}_{;L}\varpi_MQ^JQ^KQ^L\right)\right].
 }
+Substituting the linear solutions~(\ref{eq: 1st metric})
+\bae{
+    \alpha=\frac{\calN_\IR^2}{2a^3\Mpl^2\calH}\varpi_IQ^I, \qquad
+    \frac{\nabla^2}{a^2}\psi=-\frac{3\calN_\IR}{2a^3\Mpl^2}\varpi_IQ^I-\frac{\calN_\IR^2}{2a^6\Mpl^2\calH}\varpi^I\tilde{P}_I-\frac{\calN_\IR^2}{2\Mpl^2\calH}V_IQ^I,
+}
+one verifies that these are consistent with the literature~\cite{Butchers:2018hds} up to the background EoM $\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\simeq0$.
 
+Let us also compare the $\tilde{P}$'s definition~(\ref{eq: trs tildeP}) with the direct decomposition~(\ref{eq: direct decomposition}).
+To this end, the explicit expression of the parallel transported full conjugate momentum, i.e., $\pi_I^\parallel$.
+Transport equations are given by
+\bae{
+    \dif{\pi_I^\parallel}{\lambda}=\Gamma_{IJ}^K\pi_K^\parallel\dif{\phi^J}{\lambda}, \qquad \dif{^2\pi_I^\parallel}{\lambda^2}=\tilde{B}^J_{IKL}\pi_J^\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}%, \qquad \dif{^3\pi_I^\parallel}{\lambda^3}=\tilde{C}^J_{IKLM}\pi_J^\parallel\dif{\phi^K}{\lambda}\dif{\phi^L}{\lambda}\dif{\phi^M}{\lambda},
+}
+where
+\bae{
+    %\bce{
+        %\dps
+        \tilde{B}^J_{IKL}=\Gamma^J_{IK,L}+\Gamma^S_{IK}\Gamma^J_{SL}-\Gamma^J_{IS}\Gamma^S_{KL}.%, \\
+        %\dps
+        %\tilde{C}^J_{IKLM}=\tilde{B}^J_{IKL,M}+\tilde{B}^S_{IKL}\Gamma^J_{SM}-\tilde{B}^J_{ISL}\Gamma^S_{KM}-\tilde{B}^J_{IKS}\Gamma^S_{LM}.
+    %}
+}
+Therefore, similarly to $\dot{\phi}^I_\parallel$~(\ref{eq: expansion of dotphi parallel}), $\pi_I^\parallel$ at $\lambda=0$ can be expanded as
+\bae{\label{eq: pi parallel expansion}
+    \pi_I^\parallel|_{\lambda=0}&=\left(\pi_I^\parallel-\dif{\pi_I^\parallel}{\lambda}+\frac{1}{2}\dif{^2\pi_I^\parallel}{\lambda^2}%-\frac{1}{6}\dif{^3\pi_I^\parallel}{\lambda^3}
+    +\cdots\right)_{\lambda=1}=\pi_I-\Gamma^J_{IK}\pi_JQ^K+\frac{1}{2}B^J_{IKL}\pi_JQ^KQ^L+\cdots,
+}
+with use of expansions~(\ref{eq: expansion at lambda 1}).
+The current $\tilde{P}_I$ is given by
+\bae{
+    \tilde{P}_I=\pi_I^\parallel-\varpi_I+\frac{1}{6}R_{IJK}{}^L\varpi_LQ^JQ^K,
+}
+while $\pi_I$ is related with the direct decomposition $\tilde{P}_I^\mathrm{DD}$ by
+\bae{
+    \pi_I&=\varpi_I+\delta\pi_I=\varpi_I+\Delta\pi_I+\Gamma^K_{IJ}\varpi_K\delta\phi^J \nonumber \\
+    &=\varpi_I+\tilde{P}_I^\mathrm{DD}+\Gamma^K_{IJ}\varpi_KQ^J+\frac{1}{2}\tilde{B}^J_{IKL}\varpi_JQ^KQ^L+\Gamma^K_{IJ}Q^J\tilde{P}_K^\mathrm{DD}.
+}
+Substituting them into $\pi_I^\parallel$'s expansion~(\ref{eq: pi parallel expansion}), one finds
+\Blue{
+\bae{\label{eq: P and PDD}
+    \tilde{P}_I=\tilde{P}_I^\mathrm{DD}+\frac{1}{6}R_{IJK}{}^L\varpi_LQ^JQ^K, \quad \Leftrightarrow \quad P_I=\tilde{P}_I^\mathrm{DD},
+}
+up to quadratic order.
+It is justified also by the quadratic action in the direct decomposition approach.
+From Eqs.~(\ref{eq: S^(1) DD}), (\ref{eq: S^(2) DD}), and (\ref{eq: quadratic expansion}), one finds the part proportional to the background EoM as
+\bae{
+    S^{[1]}+S^{[2]}\supset\int\dd^4x\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left[\tilde{P}_I^\mathrm{DD}+\frac{1}{2}R_{IJK}{}^L\varpi_LQ^JQ^K\right].
+}
+It is consistent with Eqs.~(\ref{eq: S^[1] trs}) and (\ref{eq: S^[2] trs}) with the shift Eq.~(\ref{eq: P and PDD}).
+}
 
 
 
