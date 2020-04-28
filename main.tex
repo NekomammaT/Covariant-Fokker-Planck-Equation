@@ -76,7 +76,11 @@
 \newcommand{\scrH}{\mathscr{H}}
 \newcommand{\uI}{\mathrm{I}}
 \newcommand{\calJ}{\mathcal{J}}
+\newcommand{\bfI}{\mathbf{I}}
 \newcommand{\scrJ}{\mathscr{J}}
+\newcommand{\bfJ}{\mathbf{J}}
+\newcommand{\bfK}{\mathbf{K}}
+\newcommand{\bfk}{\mathbf{k}}
 \newcommand{\calL}{\mathcal{L}}
 \newcommand{\scrL}{\mathscr{L}}
 \newcommand{\calN}{\mathcal{N}}
@@ -85,6 +89,9 @@
 \newcommand{\calP}{\mathcal{P}}
 \newcommand{\calR}{\mathcal{R}}
 \newcommand{\uR}{\mathrm{R}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calX}{\mathcal{X}}
 
 \newcommand{\dphi}{\delta\phi}
 \newcommand{\dpi}{\delta\pi}
@@ -268,7 +275,7 @@ would be naturally generalized to the full phase-space formulation.
 In this subsection, let us start by assuming the covariant FP equation in phase space and then derive the corresponding Langevin equation.
 
 Making use of the phase-space covariant field derivative $D_{\varphi^I}$
-\bae{
+\bae{\label{eq: phase-space covariant derivative}
 	D_{\varphi^I}\calO^{JK\cdots}_{LM\cdots}:=&\partial_{\varphi^I}\calO^{JK\cdots}_{LM\cdots}
 	+\Gamma^S_{IR}\varpi_S\partial_{\varpi_R}\calO^{JK\cdots}_{LM\cdots} \nonumber \\
 	&+\Gamma^J_{IR}\calO^{RK\cdots}_{LM\cdots}+\Gamma^K_{IR}\calO^{JR\cdots}_{LM\cdots}+\cdots \nonumber \\
@@ -369,7 +376,7 @@ Noting the arguments in the left side, one derives the following formula by diff
 	}
 }
 Also from the transformation law of the Christoffel symbol~(\ref{eq: christoffel trs.}), the relation of its derivatives can be obtained as
-\bae{
+\bae{\label{eq: dif. christoffel trs.}
 	&\ppdpdpd{\tilde{\varphi}^A}{\varphi^I}{\varphi^J}\Gamma^J_{KL}+\pdif{\tilde{\varphi}^A}{\varphi^J}\Gamma^J_{KL,I} \nonumber \\
 	&=\ppdpdpd{\tilde{\varphi}^B}{\varphi^I}{\varphi^K}\pdif{\tilde{\varphi}^C}{\varphi^L}\Gamma^A_{BC}
 	+\pdif{\tilde{\varphi}^B}{\varphi^K}\ppdpdpd{\tilde{\varphi}^C}{\varphi^I}{\varphi^L}\Gamma^A_{BC}
@@ -387,7 +394,7 @@ Combining them and the tensorial transformation of the Riemann tensor $R^S{}_{JI
 }
 
 
-\subsection{Stratonovich Langiven with frame fixing}
+\subsection{Stratonovich Langevin with frame fixing}
 
 Without quadratic IR-UV interactions, one obtains the following Langevin equation.
 \bae{
@@ -470,6 +477,166 @@ Combining them, one obtains the following It\^o's Langevin
 They can be rewritten in a covariant way with use of the It\^o's covariant derivative~(\ref{eq: Ito cov derivative}) as
 \bae{
     \calD\varphi^I=\frac{\calN_\IR}{a^3}\varpi^I\dd t+g^{QI}_a\dd W_a, \qquad \calD\varpi_I=-a^3\calN_\IR V_I\dd t+g^{\tilde{P}}_{Ia}\dd W_a.
+}
+
+
+\subsection{It\^o covariant derivative for a tangent vector}
+
+To clarify the It\^o covariant derivative for a tangent vector,
+let us here consider the stochastic set of a coordinate $\calX^I$ and a tangent vector $\calU^I$ (tangent bundle), instead of phase space of $\calX^I$ and a covector $\calV_I$ (cotangent bundle).
+In general, an It\^o-type covariant FP equation for a tangent bundle would take the following form.
+\bae{
+    &\partial_tP_s(\calX,\calU;t)=-D_{\calX^I}(h^{\calX I}P_s(\calX,\calU;t))-\partial_{\calU^I}(h^{\calU I}P_s(\calX,\calU;t)) \nonumber \\
+    &+\frac{1}{2}D_{\calX^I}D_{\calX^J}(A^{\calX\calX IJ}P_s(\calX,\calU;t))+D_{\calX^I}\partial_{\calU^J}(A^{\calX\tilde{\calU}IJ}P_s(\calX,\calU;t))+\frac{1}{2}\partial_{\calU^I}\partial_{\calU^J}(A^{\tilde{\calU}\tilde{\calU}IJ}P_s(\calX,\calU;t)).
+}
+Noting that the invariant measure for a tangent bundle is $|G_{IJ}|\scrD\calX^I\scrD\calU^J$, we define the scalar PDF by $P_s=P/G$.
+$D_{\calX^I}$ represents the tangent-bundle covariant derivative
+\bae{
+    D_{\calX^I}\calO^{JK\cdots}_{LM\cdots}:=&\,\partial_{\calX^I}\calO^{JK\cdots}_{LM\cdots}-\Gamma_{IS}^R\calU^S\partial_{\calU^R}\calO^{JK\cdots}_{LM\cdots} \nonumber \\
+    &+\Gamma^J_{IR}\calO^{RK\cdots}_{LM\cdots}+\Gamma^K_{IR}\calO^{JR\cdots}_{LM\cdots}+\cdots \nonumber \\
+    &-\Gamma_{IL}^R\calO^{JK\cdots}_{RM\cdots}-\Gamma_{IM}^R\calO^{JK\cdots}_{LR\cdots}-\cdots,
+}
+similarly to the phase-space covariant derivative~(\ref{eq: phase-space covariant derivative}).
+The noise correlators $A^{\calX\calX IJ}$, $A^{\calX\tilde{\calU} IJ}$, and $A^{\tilde{\calU}\tilde{\calU}IJ}$ are related with the noise coefficients $g^{\calX I}_A$ and $g^{\tilde{\calU}I}_A$ by
+\bae{
+    A^{\calX\calX IJ}=g^{\calX I}_Ag^{\calX J}_A, \qquad A^{\calX\tilde{\calU}IJ}=g^{\calX I}_Ag^{\tilde{\calU}J}_A, \qquad A^{\tilde{\calU}\tilde{\calU}IJ}=g^{\tilde{\calU}I}_Ag^{\tilde{\calU}J}_A,
+}
+where $g^{\tilde{\calU}I}_A$ is a covariant combination defined by
+\bae{
+    g^{\tilde{\calU}I}_A=g^{\calU I}_A+\Gamma^I_{JK}\calU^Jg^{\calX K}_A.
+}
+
+After some tedious but straightforward calculations, it can be reduced to
+\bae{
+    \partial_tP=\,&-\partial_{\calX^I}\left[\left(h^{\calX I}-\frac{1}{2}\Gamma^I_{JK}A^{\calX\calX JK}\right)P\right] \nonumber \\
+    &-\partial_{\calU^I}\left[\left(h^{\calU I}-\Gamma^I_{JK}\calU^Jh^{\calX K}-\frac{1}{2}(R^I{}_{JKS}+\Gamma^I_{JK,S})\calU^SA^{\calX\calX JK}-\Gamma^I_{JK}A^{\calX\calU JK}\right)P\right] \nonumber \\
+    &+\frac{1}{2}\partial_{\calX^I}\partial_{\calX^J}(A^{\calX\calX IJ}P)+\partial_{\calX^I}\partial_{\calU^J}(A^{\calX\calU IJ}P)+\frac{1}{2}\partial_{\calU^I}\partial_{\calU^J}(A^{\calU\calU IJ}P).
+}
+Therefore the corresponding It\^o Langevin can be easily found as
+\bae{
+    \bce{
+        \dps
+        \dd \calX^I=\left(h^{\calX I}-\frac{1}{2}\Gamma^I_{JK}A^{\calX\calX JK}\right)\dd t+g^{\calX I}_A\dd W^A, \\
+        \dps
+        \dd \calU^I=\left(h^{\calU I}-\Gamma^I_{JK}\calU^Jh^{\calX K}-\frac{1}{2}(R^I{}_{JKS}+\Gamma^I_{JK,S})\calU^SA^{\calX\calX JK}-\Gamma^I_{JK}A^{\calX\calU JK}\right)\dd t+g^{\calU I}_A\dd W^A.
+    }
+}
+Introducing the It\^o covariant derivatives by
+\bae{\label{eq: Ito deriavtive for tangent bundle}
+    \bce{
+        \dps
+        \calD\calX^I:=\dd\calX^I+\frac{1}{2}\Gamma^I_{JK}A^{\calX\calX JK}\dd t, \\
+        \dps
+        \calD\calU^I:=\dd\calU^I+\Gamma^I_{JK}\calU^J\calD\calX^K+\left(\frac{1}{2}(\Gamma^I_{JS,K}-\Gamma^I_{JL}\Gamma^L_{SK}-\Gamma^I_{LS}\Gamma^L_{JK})\calU^SA^{\calX\calX JK}+\Gamma^I_{JK}A^{\calX\tilde{\calU}JK}\right)\dd t,
+    }
+}
+it can be summarized in a covariant form as
+\bae{
+    \calD\calX^I=h^{\calX I}\dd t+g^{\calX I}_A\dd W^A, \qquad \calD\calU^I=h^{\calU I}+g^{\tilde{\calU}I}_A\dd W^A.
+}
+
+The covariance of the It\^o derivatives~(\ref{eq: Ito deriavtive for tangent bundle}) can be checked by considering a coordinate transformation $\calX^I\to\bar{\calX}^{\bar{I}}(\calX)$ and $\calU^I\to\bar{\calU}^{\bar{I}}(\calX,\calU)=\pdif{\bar{\calX}^{\bar{I}}}{\calX^I}(\calX)\calU^I$.
+Making use of its derivatives
+\bae{
+    \bce{
+        \dps
+        \pdif{\bar{\calU}^{\bar{I}}}{\calX^I}=\frac{\partial^2\bar{\calX}^{\bar{I}}}{\partial\calX^I\partial\calX^J}\calU^J, &
+        \dps
+        \pdif{\bar{\calU}^{\bar{I}}}{\calU^I}=\pdif{\bar{\calX}^{\bar{I}}}{\calX^I}, \\[10pt]
+        \dps
+        \frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calX^I\partial\calX^J}=\frac{\partial^3\bar{\calX}^{\bar{I}}}{\partial\calX^I\partial\calX^J\partial\calX^K}\calU^K, &
+        \dps
+        \frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calX^I\partial\calU^J}=\frac{\partial^2\bar{\calX}^{\bar{I}}}{\partial\calX^I\partial\calX^J}, \qquad \frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calU^I\partial\calU^J}=0,
+    }
+}
+the transformation of the Christoffel symbol~(\ref{eq: christoffel trs.}) and (\ref{eq: dif. christoffel trs.})
+\bae{
+    \bce{
+        \dps
+        \pdif{\bar{\calX}^{\bar{I}}}{\calX^I}\Gamma^I_{JK}=\pdif{\bar{\calX}^{\bar{J}}}{\calX^J}\pdif{\bar{\calX}^{\bar{K}}}{\calX^K}\bar{\Gamma}^{\bar{I}}_{\bar{J}\bar{K}}+\frac{\partial^2\bar{\calX}^{\bar{I}}}{\partial\calX^J\partial\calX^K}, \\[10pt]
+        \dps
+        \frac{\partial^2\bar{\calX}^{\bar{I}}}{\partial\calX^I\partial\calX^S}\Gamma^S_{JK}+\pdif{\bar{\calX}^{\bar{I}}}{\calX^S}\Gamma^S_{JK,I} \\[5pt]
+        \dps
+        \qquad=\frac{\partial^2\bar{\calX}^{\bar{J}}}{\partial\calX^I\partial\calX^J}\pdif{\bar{\calX}^{\bar{K}}}{\calX^K}\bar{\Gamma}^{\bar{I}}_{\bar{J}\bar{K}}+\pdif{\bar{\calX}^{\bar{J}}}{\calX^J}\frac{\partial^2\bar{\calX}^{\bar{K}}}{\partial\calX^I\partial\calX^K}\bar{\Gamma}^{\bar{I}}_{\bar{J}\bar{K}}+\pdif{\bar{\calX}^{\bar{S}}}{\calX^I}\pdif{\bar{\calX}^{\bar{J}}}{\calX^J}\pdif{\bar{\calX}^{\bar{K}}}{\calX^K}\bar{\Gamma}^{\bar{I}}_{\bar{J}\bar{K},\bar{S}}+\frac{\partial^3\bar{\calX}^{\bar{I}}}{\partial\calX^I\partial\calX^J\partial\calX^K},
+    }
+}
+and the It\^o's lemma for a tangent vector
+\bae{
+    \dd\bar{\calU}^{\bar{I}}=&\,\pdif{\bar{\calU}^{\bar{I}}}{\calX^I}\dd \calX^I+\pdif{\bar{\calU}^{\bar{I}}}{\calU^I}\dd\calU^I \nonumber \\
+    &+\frac{1}{2}\frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calX^I\partial\calX^J}\dd\calX^I\dd\calX^J+\frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calX^I\partial\calU^J}\dd\calX^I\dd\calU^J+\frac{1}{2}\frac{\partial^2\bar{\calU}^{\bar{I}}}{\partial\calU^I\partial\calU^J}\dd\calU^I\dd\calU^J,
+}
+one finds that the defined It\^o derivatives~(\ref{eq: Ito deriavtive for tangent bundle}) indeed transform as covariant vectors
+\bae{
+    \calD\bar{\calX}^{\bar{I}}=\pdif{\bar{\calX}^{\bar{I}}}{\calX^I}\calD\calX^I, \qquad \calD\bar{\calU}^{\bar{I}}=\pdif{\bar{\calX}^{\bar{I}}}{\calX^I}\calD\calU^I.
+}
+
+Let us also mention the covariant derivative of the vielbein.
+Vielbein's transportation is defined in the Stratonovich's way as
+\bae{
+    \dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\circ\dd\varphi^K=\Omega_\alpha{}^\beta e^I_\beta\dd t.
+}
+As it receives noise only through $\dd\varphi$, its noise coefficients reads
+\bae{
+    g^{eI}_{\alpha A}=-\Gamma^I_{JK}e^J_\alpha g^{QK}_A.
+}
+Note that the covariant noise combination is consistently vanishing as
+\bae{
+    g^{\tilde{e}I}_{\alpha A}:=g^{eI}_{\alpha A}+\Gamma^I_{JK}e^J_\alpha g^{QK}_A=0.
+}
+Applying the formula for a tangent vector~(\ref{eq: Ito deriavtive for tangent bundle}),
+one finds the It\^o covariant derivative for the vielbein as
+\bae{
+    \calD e^I_\alpha=\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\calD\varphi^K+\frac{1}{2}(\Gamma^I_{JS,K}-\Gamma^I_{JL}\Gamma^L_{SK}-\Gamma^I_{LS}\Gamma^L_{JK})e^S_\alpha A^{QQJK}\dd t.
+}
+On the other hand, the Stratonovich discretization can be converted to the It\^o's way as
+\bae{
+    \dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\circ\dd\varphi^K&=\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\dd\varphi^K+\frac{1}{2}\pdif{(\Gamma^I_{JK}e^J_\alpha)}{\varphi^L}g^{QK}_Ag^{QL}_A\dd t+\frac{1}{2}\pdif{(\Gamma^I_{JK}e^J_\alpha)}{e^L_\beta}g^{QK}_Ag^{eL}_{\beta A}\dd t \nonumber \\
+    &=\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\calD\varphi^L+\frac{1}{2}(\Gamma^I_{JS,K}-\Gamma^I_{JL}\Gamma^L_{SK}-\Gamma^I_{LS}\Gamma^L_{JK})e^S_\alpha A^{QQJK}\dd t
+}
+It is nothing but the obtained It\^o covariant derivative! Therefore the vielbein transportation can be summarized in the It\^o's way as
+\bae{
+    \calD e^I_\alpha=\Omega_\alpha{}^\beta e^I_\beta.
+}
+Here one should be careful of the circle position in the conversion from Stratonovich to It\^o:
+\bae{
+    \dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\circ\dd\varphi^K&=\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\frac{\calN_\IR}{a^3}\varpi^K\dd t+\Gamma^I_{JK}e^J_\alpha\circ(e^K_\beta Q^\beta_A\dd W^A) \nonumber \\
+    &\neq\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\frac{\calN_\IR}{a^3}\varpi^K\dd t+\Gamma^I_{JK}e^J_\alpha e^K_\beta Q^\beta_A\circ\dd W^A.
+}
+Otherwise one leads to a wrong It\^o Langevin for the vielbein.
+
+
+\subsection{System of the fields, momenta, and vielbeins}
+
+We set the Stratonovich-like equation of motion for the system of fields, momenta, and vielbeins as
+\bae{
+    \bce{
+        \dps
+        \dd\varphi^I=G^{IJ}\frac{\varpi_J}{H}\dd N+e^I_\alpha Q^\alpha_A\circ\dd W^A, \\
+        \dps
+        \dd\varpi_I-\Gamma_{IJ}^K\varpi_K\circ\dd\varphi^J=-\left(3\varpi_I\frac{V_I}{H}\right)\dd N+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\circ\dd W^A, \\
+        \dps
+        \dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\circ\dd\varphi^K=0.
+    }    
+}
+(The e-folding number is used as time variable and $a^3$ is renormalized into the momenta for later use.)
+Note the position of the Stratonovich circle.
+Let us here convert this system to the It\^o's SDE. As in the draft, the local nosie amplitudes $Q^\alpha_A$ and $\tilde{P}^\alpha_A$ are not interpreted as simple functions of $(\varphi^I,\varpi_I,e^I_\alpha)$.
+Then the field SDE reads
+\bae{
+    \dd\varphi^I&=G^{IJ}\frac{\varpi_J}{H}\dd N+e^I_\alpha Q^\alpha_A\dd W^A+\frac{1}{2}Q^\alpha_A\dd e^I_\alpha\dd W^A \nonumber \\
+    &=G^{IJ}\frac{\varpi_J}{H}\dd N+e^I_\alpha Q^\alpha_A\dd W^A-\frac{1}{2}Q^\alpha_A\Gamma^I_{JK}e^J_\alpha e^K_\beta Q^\beta_B\dd W^B\dd W^A \nonumber \\
+    &=G^{IJ}\frac{\varpi_J}{H}\dd N+e^I_\alpha Q^\alpha_A\dd W^A-\frac{1}{2}\Gamma^I_{JK}A^{QQJK}\dd N.
+}
+It is summarized as
+\bae{
+    \calD\varphi^I=G^{IJ}\frac{\varpi_J}{H}\dd N+Q^I_A\dd W^A, \qquad \calD\varphi^I=\dd\varphi^I+\frac{1}{2}\Gamma^I_{JK}A^{QQJK}\dd N,
+}
+with the It\^o covariant derivative.
+
+Next, the momentum SDE is converted as
+\bae{
+    \dd\varpi_I&=\Gamma^K_{IJ}\varpi_K\circ\dd\varphi^J-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\circ\dd W^A \nonumber \\
+    &=\Gamma^K_{IJ}\varpi_K\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ,L}\varpi_K\dd\varphi^L\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ}\dd\varphi^J\dd\varpi_K
 }
 
 
@@ -1253,12 +1420,12 @@ Recalling that only linear solutions for the ADM variables are relevant up to th
 	S^{[1]}&=\int\dd^4x\left[\tilde{P}_I\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)-Q^I\left(D_t\varpi_I+a^3\calN_\IR V_I\right)
 	-a^3\alpha\left(\frac{1}{2a^6}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \label{eq: S^[1] trs} \\
 	S^{[2]}&=\int\dd^4x\left[\tilde{P}_ID_tQ^I-\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2
-	-a^3\left(\frac{1}{a^6}\varpi_I\tilde{P}^I+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi \right. \nonumber \\
+	-a^3\alpha\left(\frac{1}{a^6}\varpi_I\tilde{P}^I+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi \right. \nonumber \\
 	&\qquad-a^3\calN_\IR\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J
 	-\frac{1}{2}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right) \nonumber \\
 	&\qquad\left.+\frac{1}{3}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\right], \label{eq: S^[2] trs} \\
 	S^{[3]}&=\int\dd^4x\left[\frac{3a^3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3+\frac{2a^3\Mpl^2\calH}{\calN_\IR^3}\alpha^2\frac{\nabla^2}{a^2}\psi+\frac{\Mpl^2}{2a\calN_\IR^2}\alpha\left((\psi_{ii}^2)-\psi_{ij}\psi_{ij}\right) \right. \nonumber \\
-	&\qquad-a^3\alpha\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I+\frac{1}{2}V_{I;J}Q^IQ^J\right)-\frac{1}{a^2}\psi_i\tilde{P}_I\partial_iQ^I \nonumber \\
+	&\qquad-a^3\alpha\left(\frac{1}{2a^6}\tilde{P}_I\tilde{P}^I+\frac{1}{2a^2}\partial_iQ^I\partial_iQ_I+\frac{1}{2}V_{I;J}Q^IQ^J-\frac{1}{6a^6}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right)-\frac{1}{a^2}\psi_i\tilde{P}_I\partial_iQ^I \nonumber \\
 	&\qquad+a^3\calN_\IR\left(\frac{2}{3a^6}R^L{}_{IJ}{}^K\varpi_LQ^IQ^J\tilde{P}_K-\frac{1}{6}V_{I;JK}Q^IQ^JQ^K+\frac{1}{6}R^L{}_{IJ}{}^M{}_{;K}\varpi_L\varpi_MQ^IQ^JQ^K\right) \nonumber \\
 	&\qquad\left.+\frac{1}{6}\left(\dot{\varphi}^I-\frac{\calN_\IR}{a^3}\varpi^I\right)\left(3R_{IJK}{}^LQ^JQ^K\tilde{P}_L+R_{IJK}{}^M{}_{;L}\varpi_MQ^JQ^KQ^L\right)\right].
 }
@@ -1313,6 +1480,93 @@ From Eqs.~(\ref{eq: S^(1) DD}), (\ref{eq: S^(2) DD}), and (\ref{eq: quadratic ex
 It is consistent with Eqs.~(\ref{eq: S^[1] trs}) and (\ref{eq: S^[2] trs}) with the shift Eq.~(\ref{eq: P and PDD}).
 }
 
+
+\subsection{Cubic action with several redefinition}
+
+\begin{enumerate}
+\item $\varpi_I\to a^3\varpi_I$, $\tilde{P}_{I,\kappa}\to a^3\tilde{P}_{I,\kappa}$.
+\bae{
+    S^{(0)}&=\int\dd^4x\,a^3\left[\varpi_I\dot{\varphi}^I-\calN_\IR\left(\frac{1}{2}\varpi_I\varpi^I+V+\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+    S^{(1)}&=\int\dd^4x\,a^3\biggl[\tilde{P}_{I,\kappa}\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)-Q^I\left(D_t\varpi_I+3\calH\varpi_I+\calN_\IR V_I\right) \nonumber \\
+    &\qquad\qquad\left.-\alpha\left(\frac{1}{2}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+    S^{(2)}&=\int\dd^4x\,a^3\left[\tilde{P}_{I,\kappa}D_tQ^I-\frac{3\Mpl^2\calH^2}{\calN_\IR^3}\alpha^2-\alpha\left(\varpi_I\tilde{P}^I_\kappa+V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi \right. \nonumber \\
+    &\qquad\qquad -\calN_\IR\left(\frac{1}{2}\tilde{P}_{I,\kappa}\tilde{P}^I_\kappa-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J-\frac{1}{2}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right)\nonumber \\
+    &\qquad\qquad+\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\biggr], \\
+    S^{(3)}&=\int\dd^4x\,a^3\left[\frac{3\Mpl^2\calH^2}{\calN_\IR^4}\alpha^3+\frac{2\Mpl^2\calH}{\calN_\IR^3}\alpha^2\frac{\nabla^2}{a^2}\psi+\frac{\Mpl^2}{2\calN_\IR^2}\alpha\left(\left(\frac{\nabla^2}{a^2}\psi\right)^2-\frac{\psi_{ij}}{a^2}\frac{\psi_{ij}}{a^2}\right)-\frac{1}{a^2}\psi_i\tilde{P}_{I,\kappa}\partial_iQ^I \right. \nonumber \\
+    &\qquad\qquad -\alpha\left(\frac{1}{2}\tilde{P}_{I,\kappa}\tilde{P}^I_\kappa+\frac{1}{2a^2}\partial_iQ_I\partial_iQ^I+\frac{1}{2}V_{I;J}Q^IQ^J-\kappa R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right) \nonumber \\
+    &\qquad\qquad +\calN_\IR\left(\left(\frac{1}{2}+\kappa\right)R^L{}_{IJ}{}^K\varpi_LQ^IQ^J\tilde{P}_{K,\kappa}-\frac{1}{6}V_{I;JK}Q^IQ^JQ^K \right. \nonumber \\
+    &\qquad\qquad\qquad \left. +\frac{1}{6}R^L{}_{IJ}{}^M{}_{;K}\varpi_L\varpi_MQ^IQ^JQ^K\right)\nonumber \\
+    &\qquad\qquad +\frac{1}{6}\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)\left(3R_{IJK}{}^LQ^JQ^K\tilde{P}_{K,\kappa}+R_{IJK}{}^M{}_{;L}\varpi_MQ^JQ^KQ^L\right) \nonumber \\
+    &\qquad\qquad\left. +\left(\frac{1}{6}-\kappa\right)R^L{}_{IJK}\varpi_LQ^IQ^JD_tQ^K \right].
+}
+Background EoM and energy-momentum constraints are
+\bae{
+    \bce{
+        \dps
+        \dot{\varphi}^I=\calN_\IR\varpi^I, &
+        \dps
+        D_t\varpi_I=-3\calH\varpi_I-\calN_\IR V_I, \\
+        \dps
+        \frac{3\Mpl^2\calH^2}{\calN_\IR^2}=\frac{1}{2}\varpi_I\varpi^I+V, &
+        \dps
+        \partial_t\left(\frac{\calH}{\calN_\IR}\right)=-\frac{\calN_\IR}{2\Mpl^2}\varpi_I\varpi^I, \\
+        \dps
+        \alpha=\frac{\calN_\IR^2}{2\Mpl^2\calH}\varpi_IQ^I, &
+        \dps
+        \frac{\nabla^2}{a^2}\psi=-\frac{3\calN_\IR}{2\Mpl^2}\varpi_IQ^I-\frac{\calN_\IR^2}{2\Mpl^2\calH}\varpi_I\tilde{P}^I_\kappa-\frac{\calN_\IR^2}{2\Mpl^2\calH}V_IQ^I.
+    }
+}
+
+\item $\tilde{P}_{I,\kappa}=\tilde{P}_{I,\alpha}-\frac{\alpha}{\calN_\IR}\varpi_I$ to diagonalize $\tilde{P}$ and $\alpha$ in the quadratic action $S^{(2)}$.
+\bae{
+    S^{(0)}&=\int\dd^4x\,a^3\left[\varpi_I\dot{\varphi}^I-\calN_\IR\left(\frac{1}{2}\varpi_I\varpi^I+V+\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+    S^{(1)}&=\int\dd^4x\,a^3\biggl[\left(\tilde{P}_{I,\alpha}-\frac{\alpha}{\calN_\IR}\varpi_I\right)\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)-Q^I\left(D_t\varpi_I+3\calH\varpi_I+\calN_\IR V_I\right) \nonumber \\
+    &\qquad\qquad\left.-\alpha\left(\frac{1}{2}\varpi_I\varpi^I+V-\frac{3\Mpl^2\calH^2}{\calN_\IR^2}\right)\right], \\
+    S^{(2)}&=\int\dd^4x\,a^3\left[\left(\tilde{P}_{I,\alpha}-\frac{\alpha}{\calN_\IR}\varpi_I\right)D_tQ^I-\alpha^2\left(\frac{3\Mpl^2\calH^2}{\calN_\IR^3}-\frac{1}{2\calN_\IR}\varpi_I\varpi^I\right) \right. \nonumber \\
+    &\qquad\qquad -\alpha\left(V_IQ^I+\frac{2\Mpl^2\calH}{\calN_\IR^2}\frac{\nabla^2}{a^2}\psi\right)+\varpi_IQ^I\frac{\nabla^2}{a^2}\psi \nonumber \\
+    &\qquad\qquad -\calN_\IR\left(\frac{1}{2}\tilde{P}_{I,\alpha}\tilde{P}^I_\alpha-\frac{1}{2}Q_I\frac{\nabla^2}{a^2}Q^I+\frac{1}{2}V_{I;J}Q^IQ^J-\frac{1}{2}R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right)\nonumber \\
+    &\qquad\qquad+\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)R_{IJK}{}^L\varpi_LQ^JQ^K\biggr], \\
+    S^{(3)}&=\int\dd^4x\,a^3\left[\alpha^3\left(\frac{3\Mpl^2\calH^2}{\calN_\IR^4}-\frac{1}{2\calN_\IR^2}\varpi_I\varpi^I\right)+\alpha^2\left(\frac{2\Mpl^2\calH}{\calN_\IR^3}\frac{\nabla^2}{a^2}\psi+\frac{1}{\calN_\IR}\varpi_I\tilde{P}^I_\alpha\right) \right. \nonumber \\ &\qquad\qquad+\frac{\Mpl^2}{2\calN_\IR^2}\alpha\left(\left(\frac{\nabla^2}{a^2}\psi\right)^2-\frac{\psi_{ij}}{a^2}\frac{\psi_{ij}}{a^2}\right)-\frac{1}{a^2}\psi_i\left(\tilde{P}_{I,\alpha}-\frac{\alpha}{\calN_\IR}\varpi_I\right)\partial_iQ^I  \nonumber \\
+    &\qquad\qquad -\alpha\left(\frac{1}{2}\tilde{P}_{I,\alpha}\tilde{P}^I_\alpha+\frac{1}{2a^2}\partial_iQ_I\partial_iQ^I+\frac{1}{2}V_{I;J}Q^IQ^J+\frac{1}{2} R_I{}^{KL}{}_J\varpi_K\varpi_LQ^IQ^J\right) \nonumber \\
+    &\qquad\qquad +\calN_\IR\left(\left(\frac{1}{2}+\kappa\right)R^L{}_{IJ}{}^K\varpi_LQ^IQ^J\tilde{P}_{K,\alpha}-\frac{1}{6}V_{I;JK}Q^IQ^JQ^K \right. \nonumber \\
+    &\qquad\qquad\qquad \left. +\frac{1}{6}R^L{}_{IJ}{}^M{}_{;K}\varpi_L\varpi_MQ^IQ^JQ^K\right)\nonumber \\
+    &\qquad\qquad +\frac{1}{6}\left(\dot{\varphi}^I-\calN_\IR\varpi^I\right)\left(3R_{IJK}{}^LQ^JQ^K\left(\tilde{P}_{K,\alpha}-\frac{\alpha}{\calN_\IR}\varpi_K\right)+R_{IJK}{}^M{}_{;L}\varpi_MQ^JQ^KQ^L\right) \nonumber \\
+    &\qquad\qquad\left. +\left(\frac{1}{6}-\kappa\right)R^L{}_{IJK}\varpi_LQ^IQ^JD_tQ^K \right].
+}
+Substituting the background EoM and $\alpha$'s constraint and integrating $D_tQ^I$ by parts, the quadratic action reads
+\bae{
+    S^{(2)}&=\int\dd^4x\,a^3\left[\tilde{P}_{I,\alpha}D_tQ^I-\frac{1}{2}\calN_\IR\tilde{P}_{I,\alpha}\tilde{P}^I_\alpha \right. \nonumber \\
+    &\qquad\qquad\left. -\frac{\calN_\IR}{2}Q^I\left(-G_{IJ}\frac{\nabla^2}{a^2}+V_{I;J}-R_I{}^{KL}{}_J\varpi_K\varpi_L-\frac{1}{a^3\calN_\IR\Mpl^2}D_t\left(\frac{a^3\calN_\IR}{\calH}\varpi_I\varpi_J\right)\right)Q^J\right],
+}
+which is consistent with the well-known formula.
+Before calculating the cubic action, we note that the $\psi$'s constraint is shifted by $\tilde{P}$'s redefinition. It can be simplified with use of the background EoM as
+\bae{
+    \frac{\nabla^2}{a^2}\psi=\frac{\calN_\IR}{2\Mpl^2\calH}\left(Z_IQ^I-\calN_\IR\varpi^I\tilde{P}_{I,\alpha}\right),
+}
+where
+\bae{
+    Z_I=D_t\varpi_I+\frac{\calN_\IR^2}{2\Mpl^2\calH}\varpi_J\varpi^J\varpi_I.
+}
+The cubic action in the Fourier space then reads
+\bae{
+    S^{(3)}&=\frac{1}{2}\int\dd t\,a^3\left[A_{\bfI\bfJ\bfK}Q^\bfI Q^\bfJ Q^\bfK+B_{\bfI\bfJ\bfK}Q^\bfI Q^\bfJ\tilde{P}_\alpha^\bfK+C_{\bfI\bfJ\bfK}\tilde{P}_\alpha^\bfI\tilde{P}_\alpha^\bfJ Q^\bfK \right. \nonumber \\
+    &\qquad\qquad\left. +\left(\frac{1}{3}-2\kappa\right)R^L{}_{\bfI\bfJ\bfK}\varpi_LQ^\bfI Q^\bfJ D_tQ^\bfK\right],
+}
+where
+\bae{
+    A_{IJK}=&\,\frac{\calN_\IR^4}{4\Mpl^6\calH^3}\varpi_I\varpi_J\varpi_K\left(\frac{3\Mpl^2\calH^2}{\calN_\IR^2}-\frac{1}{2}\varpi_L\varpi^L\right)+\frac{\calN_\IR^2}{4\Mpl^4\calH^2}\varpi_I\varpi_JZ_K \nonumber \\
+    &+\frac{\calN_\IR^2}{8\Mpl^4\calH^3}\varpi_IZ_JZ_K\left(1-\frac{(\bfk_2\cdot\bfk_3)^2}{k_2^2k_3^2}\right)+\frac{\calN_\IR^2}{2\Mpl^2\calH}\varpi_IG_{JK}\frac{\bfk_2\cdot\bfk_3}{a^2} \nonumber \\
+    &-\frac{\calN_\IR^2}{2\Mpl^2\calH}\varpi_IV_{J;K}-\frac{\calN_\IR^2}{2\Mpl^2\calH}R_J{}^{LM}{}_K\varpi_I\varpi_L\varpi_M -\frac{\calN_\IR}{3}V_{I;JK}+\frac{\calN_\IR}{3}R^L{}_{IJ}{}^M{}_{;K}\varpi_L\varpi_M, \\
+    B_{IJK}=&-\frac{\calN_\IR^4}{4\Mpl^2\calH^3}\varpi_IZ_J\varpi_K\left(1-\frac{(\bfk_2\cdot\bfk_3)^2}{k_2^2k_3^2}\right)-\frac{\calN_\IR}{\Mpl^2\calH}Z_IG_{JK}\frac{\bfk_1\cdot\bfk_2}{k_1^2}-\frac{\calN_\IR^3}{4\Mpl^4\calH^2}\varpi_I\varpi_J\varpi_K \nonumber \\
+    &+(1+2\kappa)\calN_\IR R_{KIJ}{}^L\varpi_L, \\
+    C_{IJK}=&\frac{\calN_\IR^4}{8\Mpl^4\calH^3}\varpi_I\varpi_J\varpi_K\left(1-\frac{(\bfk_1\cdot\bfk_2)^2}{k_1^2k_2^2}\right)+\frac{\calN_\IR^2}{\Mpl^2\calH}\varpi_IG_{JK}\frac{\bfk_1\cdot\bfk_3}{k_1^2}-\frac{\calN_\IR^2}{2\Mpl^2\calH}G_{IJ}\varpi_K.
+}
+Bold indices $\bfI$, $\bfJ$, and $\bfK$ are defined in the same way with Ref.~\cite{Butchers:2018hds}. It is equivalent to their cubic action if $\kappa=1/6$.
+
+
+
+
+\end{enumerate}
 
 
 
