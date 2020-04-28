@@ -480,7 +480,7 @@ They can be rewritten in a covariant way with use of the It\^o's covariant deriv
 }
 
 
-\subsection{It\^o covariant derivative for a tangent vector}
+\subsection{It\^o covariant derivative for a tangent vector}\label{sec: Ito covariant derivative for a tangent vector}
 
 To clarify the It\^o covariant derivative for a tangent vector,
 let us here consider the stochastic set of a coordinate $\calX^I$ and a tangent vector $\calU^I$ (tangent bundle), instead of phase space of $\calX^I$ and a covector $\calV_I$ (cotangent bundle).
@@ -613,7 +613,7 @@ We set the Stratonovich-like equation of motion for the system of fields, moment
         \dps
         \dd\varphi^I=G^{IJ}\frac{\varpi_J}{H}\dd N+e^I_\alpha Q^\alpha_A\circ\dd W^A, \\
         \dps
-        \dd\varpi_I-\Gamma_{IJ}^K\varpi_K\circ\dd\varphi^J=-\left(3\varpi_I\frac{V_I}{H}\right)\dd N+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\circ\dd W^A, \\
+        \dd\varpi_I-\Gamma_{IJ}^K\varpi_K\circ\dd\varphi^J=-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\circ\dd W^A, \\
         \dps
         \dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\circ\dd\varphi^K=0.
     }    
@@ -636,7 +636,37 @@ with the It\^o covariant derivative.
 Next, the momentum SDE is converted as
 \bae{
     \dd\varpi_I&=\Gamma^K_{IJ}\varpi_K\circ\dd\varphi^J-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\circ\dd W^A \nonumber \\
-    &=\Gamma^K_{IJ}\varpi_K\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ,L}\varpi_K\dd\varphi^L\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ}\dd\varphi^J\dd\varpi_K
+    &=\Gamma^K_{IJ}\varpi_K\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ,L}\varpi_K\dd\varphi^L\dd\varphi^J+\frac{1}{2}\Gamma^K_{IJ}\dd\varphi^J\dd\varpi_K-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N \nonumber \\
+    &\qquad+G_{IJ}e^J_\alpha\tilde{P}^\alpha_A\dd W^A+\frac{1}{2}G_{IJ,K}e^J_\alpha\tilde{P}^\alpha_A\dd\varphi^K\dd W^A+\frac{1}{2}G_{IJ}\tilde{P}^\alpha_A\dd e^J_\alpha\dd W^A \nonumber \\
+    &=\Gamma^K_{IJ}\varpi_K\left(\calD\varphi^J-\frac{1}{2}\Gamma^J_{LM}A^{QQLM}\dd N\right)+\frac{1}{2}\Gamma^K_{IJ,L}\varpi_KA^{QQLJ}\dd N \nonumber \\
+    &\qquad +\frac{1}{2}\Gamma^K_{IJ}\left(A^{Q\tilde{P}J}{}_K+\Gamma_{KL}^M\varpi_MA^{QQJL}\right)\dd N-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N \nonumber \\
+    &\qquad +\tilde{P}_{IA}\dd W^A+\frac{1}{2}G_{IJ,K}A^{Q\tilde{P}KJ}\dd N-\frac{1}{2}G_{IJ}\Gamma^J_{KL}A^{Q\tilde{P}KL}\dd N.
+}
+The last two terms are simplified as
+\bae{
+    \frac{1}{2}\left(G_{IJ,K}-G_{IS}\Gamma^S_{JK}\right)A^{Q\tilde{P}JK}\dd N&=\frac{1}{2}\left[G_{IJ,K}-\frac{1}{2}G_{IS}G^{SR}\left(G_{JR,K}+G_{KR,J}-G_{JK,R}\right)\right]A^{Q\tilde{P}JK}\dd N \nonumber \\
+    &=\frac{1}{4}\left(G_{IJ,K}+G_{JK,I}-G_{KI,J}\right)A^{Q\tilde{P}JK}\dd N \nonumber \\
+    &=\frac{1}{2}\Gamma_{IJ}^KA^{Q\tilde{P}J}{}_K\dd N.
+}
+Therefore they are summarized by
+\bae{
+    \dd\varpi_I&=\Gamma^K_{IJ}\varpi_K\calD\varphi^J-\frac{1}{2}(\Gamma^S_{IR}\Gamma^R_{JK}-\Gamma^S_{IJ,K}-\Gamma^R_{IJ}\Gamma^S_{KR})A^{QQJK}\dd N+\Gamma^K_{IJ}A^{Q\tilde{P}J}{}_K\dd N \nonumber \\
+    &\qquad-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+\tilde{P}_{IA}\dd W^A \nonumber \\
+    &=\Gamma^K_{IJ}\varpi_K\calD\varphi^J-\frac{1}{2}(R^S{}_{JIK}-\Gamma^S_{JK,I})A^{QQJK}\dd N+\Gamma_{IJ}^KA^{Q\tilde{P}J}{}_K\dd N \nonumber \\
+    &\qquad -\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+\tilde{P}_{IA}\dd W^A,
+}
+which is simplified as
+\bae{
+    \calD\varpi_I=-\left(3\varpi_I+\frac{V_I}{H}\right)\dd N+\tilde{P}_{IA}\dd W^A,
+}
+with the It\^o covariant derivative
+\bae{
+    \calD\varpi_I=\dd\varpi_I-\Gamma^K_{IJ}\varpi_K\calD\varphi^J+\frac{1}{2}(R^S{}_{JIK}-\Gamma^S_{JK,I})A^{QQJK}\dd N-\Gamma^K_{IJ}A^{Q\tilde{P}J}{}_K\dd N.
+}
+
+As seen in Sec.~\ref{sec: Ito covariant derivative for a tangent vector}, the vielbein SDE is also summarized in a covariant form as
+\bae{
+    \calD e^I_\alpha=\dd e^I_\alpha+\Gamma^I_{JK}e^J_\alpha\calD\varphi^K+\frac{1}{2}(\Gamma^I_{JS,K}-\Gamma^I_{JL}\Gamma^L_{SK}-\Gamma^I_{LS}\Gamma^L_{JK})e^S_\alpha A^{QQJK}\dd N=0.
 }
 
 
